@@ -8,9 +8,10 @@
                     <!-- Welcome Intro Start -->
                     <div class="col-12 col-md-7">
                         <div class="welcome-intro">
-                            <h1>Creative way to Showcase your App</h1>
-                            <p class="my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus commodi, voluptate quaerat iure quidem expedita eos a blanditiis sint modi est error veniam facere eum at doloribus amet, nobis ut.</p>
-                            <a href="#" class="btn">Get Started</a>
+                            <h1>Revoluciona la Gestión de Ligas de Fútbol</h1>
+                            <p class="my-4">Descubre la plataforma que cambiará la forma en que organizas y administras tus torneos de fútbol. Futzo te ofrece herramientas innovadoras y una experiencia optimizada para que lleves tu liga al siguiente nivel.</p>
+                            <a href="#" class="btn">¡Únete a la Espera!</a>
+                          <small class="d-block">Regístrate ahora para ser el primero en conocer el lanzamiento y recibir noticias exclusivas.</small>
                         </div>
                     </div>
                     <div class="col-12 col-md-5">
