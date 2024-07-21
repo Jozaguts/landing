@@ -10,7 +10,6 @@ import ScreenshotSection from '@/components/ScreenshotSection/screenshotTwo.vue'
 import ReviewSection from '@/components/ReviewSection/reviewTwo.vue'
 import PricingSection from '@/components/PricingSection/pricingOne.vue'
 import FaqSection from '@/components/FaqSection/faqTwo.vue'
-import DownloadSection from '@/components/DownloadSection/download.vue'
 import NewsletterSection from '@/components/NewsletterSection/newsletter.vue'
 import ContactSection from '@/components/ContactSection/contactOne.vue'
 import FooterSection from '@/components/FooterSection/footerOne.vue'
@@ -29,7 +28,7 @@ import FooterSection from '@/components/FooterSection/footerOne.vue'
       <ReviewSection />
       <PricingSection />
       <FaqSection />
-      <DownloadSection />
+<!--      <DownloadSection />-->
       <NewsletterSection />
       <ContactSection />
       <FooterSection />

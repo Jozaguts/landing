@@ -5,9 +5,9 @@
                     <div class="col-12 col-md-10 col-lg-6">
                         <!-- Section Heading -->
                         <div class="section-heading text-center">
-                            <h2>Explore Premium Features</h2>
+                            <h2>Características que Marcan la Diferencia</h2>
                             <p class="d-none d-sm-block mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.</p>
-                            <p class="d-block d-sm-none mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati.</p>
+                            <p class="d-block d-sm-none mt-4">Futzo te ofrece todo lo que necesitas para gestionar tu liga de fútbol de manera eficiente y profesional.</p>
                         </div>
                     </div>
                 </div>
@@ -21,8 +21,8 @@
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
-                                <h3 class="mb-2">Fully functional</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos.</p>
+                                <h3 class="mb-2">Gestión de Torneos</h3>
+                                <p>Organiza y administra múltiples torneos con facilidad. Desde la creación hasta la finalización, todo en una plataforma intuitiva.</p>
                             </div>
                         </div>
                     </div>
@@ -35,8 +35,8 @@
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
-                                <h3 class="mb-2">Fully functional</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos.</p>
+                                <h3 class="mb-2">Calendario de Partidos</h3>
+                                <p>Planifica y visualiza todos los encuentros de tu liga con un calendario interactivo que facilita la programación y el seguimiento de los partidos.</p>
                             </div>
                         </div>
                     </div>
@@ -49,8 +49,8 @@
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
-                                <h3 class="mb-2">Fully functional</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos.</p>
+                                <h3 class="mb-2">Asignación de Canchas</h3>
+                                <p>Evita conflictos de horarios y asegura la disponibilidad de las canchas con nuestra herramienta de gestión de ubicaciones.</p>
                             </div>
                         </div>
                     </div>
@@ -63,8 +63,8 @@
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
-                                <h3 class="mb-2">Location Tracking</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos.</p>
+                                <h3 class="mb-2">Control de Equipos y Jugadores</h3>
+                                <p>Mantén un registro detallado de los equipos y jugadores, incluyendo estadísticas, rendimientos y más.</p>
                             </div>
                         </div>
                     </div>
@@ -77,8 +77,8 @@
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
-                                <h3 class="mb-2">Powerful Settings</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos.</p>
+                                <h3 class="mb-2">Comunicación Efectiva</h3>
+                                <p>Envía notificaciones y actualizaciones a todos los miembros de la liga directamente desde la plataforma.</p>
                             </div>
                         </div>
                     </div>
@@ -91,8 +91,8 @@
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
-                                <h3 class="mb-2">Multiple Language</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos.</p>
+                                <h3 class="mb-2">Informe y Estadísticas</h3>
+                                <p>Genera informes detallados y analiza estadísticas para tomar decisiones informadas y mejorar la gestión de tu liga.</p>
                             </div>
                         </div>
                     </div>
