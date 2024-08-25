@@ -8,16 +8,19 @@
                     <!-- Welcome Intro Start -->
                     <div class="col-12 col-md-7">
                         <div class="welcome-intro">
-                            <h1>Revoluciona la Gestión de Ligas de Fútbol</h1>
-                            <p class="my-4">Descubre la plataforma que cambiará la forma en que organizas y administras tus torneos de fútbol. Futzo te ofrece herramientas innovadoras y una experiencia optimizada para que lleves tu liga al siguiente nivel.</p>
-                            <a href="#" class="btn">¡Únete a la Espera!</a>
-                          <small class="d-block">Regístrate ahora para ser el primero en conocer el lanzamiento y recibir noticias exclusivas.</small>
+                            <h1>La mejor plataforma para gestionar tu liga de fútbol de manera profesional</h1>
+                            <p class="d-none d-md-block d-lg-block my-4">Futzo centraliza todas tus operaciones en una sola plataforma. Simplifica la administración y mejora la comunicación con tu equipo.</p>
+                            <p class="my-4 d-lg-node d-md-none d-block">
+                              Futzo centraliza todas tus operaciones <br>
+                              en una sola plataforma. Simplifica la <br> administración
+                              y mejora la comunicación <br> con tu equipo.</p>
+                            <a href="#newsletter" class="btn">¡Únete a la Espera!</a>
                         </div>
                     </div>
                     <div class="col-12 col-md-5">
                         <!-- Welcome Thumb -->
                         <div class="welcome-thumb" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">
-                            <img src="assets/img/features_thumb.png" alt="">
+                            <img src="assets/img/image1 - monitor - dashboard.png" alt="Interfaz de gestión de equipos y jugadores en Futzo">
                         </div>
                     </div>
                 </div>
@@ -25,12 +28,18 @@
         </section>
 </template>
 
-<script>
-export default {
-    
-}
+<script setup lang="ts">
+useHead({
+    title: 'Futzo | Gestiona tu liga de fútbol de manera profesional',
+    meta: [
+        {
+            name: 'description',
+            content: 'Futzo es la plataforma definitiva para la gestión de ligas de fútbol. Centraliza operaciones, automatiza calendarios y mantén una comunicación efectiva con tus equipos. Fácil, rápido y seguro.'
+        },
+        {
+            name: 'keywords',
+            content: 'futzo, liga de fútbol, gestión de torneos, calendario de partidos, asignación de canchas, equipos, jugadores, automatización de procesos, acceso seguro'
+        }
+    ]
+})
 </script>
-
-<style>
-
-</style>

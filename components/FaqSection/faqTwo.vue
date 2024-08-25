@@ -1,13 +1,13 @@
 <template>
-    <section class="section faq-area ptb_100">
+    <section class="section faq-area ptb_100" id="faq">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-7">
                         <!-- Section Heading -->
                         <div class="section-heading text-center">
-                            <h2 class="text-capitalize">Have questions? Look here</h2>
-                            <p class="d-none d-sm-block mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.</p>
-                            <p class="d-block d-sm-none mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati.</p>
+                            <h2 class="text-capitalize"> ¿Tienes Preguntas? </h2>
+                            <p class="d-none d-sm-block mt-4">Si tienes alguna pregunta sobre Futzo, consulta nuestras preguntas frecuentes. Hemos reunido las dudas más comunes para que puedas resolverlas rápidamente.</p>
+                            <p class="d-block d-sm-none mt-4">Consulta nuestras preguntas frecuentes para resolver tus dudas sobre Futzo de manera rápida.</p>
                         </div>
                     </div>
                 </div>
@@ -25,14 +25,14 @@
                                             <div class="card-header bg-inherit border-0 p-0">
                                                 <h2 class="mb-0">
                                                     <button class="btn px-0 py-3" type="button" data-toggle="collapse" data-target="#collapseOne">
-                                                        How to install sApp?
+                                                      ¿Qué es Futzo y cómo puede ayudarme en la gestión de mi liga de fútbol?
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseOne" class="collapse show" data-parent="#sApp-accordion">
                                                 <!-- Card Body -->
                                                 <div class="card-body px-0 py-3">
-                                                    The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.
+                                                  Futzo es una plataforma integral diseñada para optimizar la administración de ligas de fútbol, haciéndola más eficiente y menos complicada. Desde la programación automatizada de partidos hasta la gestión de equipos, Futzo centraliza todas las funciones clave en un solo lugar. Una de sus características destacadas es la automatización del proceso de inscripción: Futzo genera URLs únicas para que cada equipo y jugador se registren de forma autónoma, reduciendo significativamente el esfuerzo administrativo. Además, facilita la comunicación directa con los jugadores, asegurando que todo el proceso sea fluido y sin complicaciones.
                                                 </div>
                                             </div>
                                         </div>
@@ -42,14 +42,14 @@
                                             <div class="card-header bg-inherit border-0 p-0">
                                                 <h2 class="mb-0">
                                                     <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse" data-target="#collapseTwo">
-                                                        Can I get support from the Author?
+                                                      ¿Necesito instalar algún software para usar Futzo?
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseTwo" class="collapse" data-parent="#sApp-accordion">
                                                 <!-- Card Body -->
                                                 <div class="card-body px-0 py-3">
-                                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+                                                  No, Futzo es una plataforma basada en la web. Solo necesitas registrarte y acceder desde cualquier dispositivo con conexión a internet. No requiere instalación, lo que te permite empezar a usarla de inmediato.
                                                 </div>
                                             </div>
                                         </div>
@@ -59,14 +59,14 @@
                                             <div class="card-header bg-inherit border-0 p-0">
                                                 <h2 class="mb-0">
                                                     <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse" data-target="#collapseThree">
-                                                        Do you have a free trail?
+                                                      ¿Puedo gestionar múltiples torneos al mismo tiempo con Futzo?
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseThree" class="collapse" data-parent="#sApp-accordion">
                                                 <!-- Card Body -->
                                                 <div class="card-body px-0 py-3">
-                                                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                  Sí, Futzo te permite organizar y administrar múltiples torneos simultáneamente. La plataforma está diseñada para manejar la complejidad de gestionar varios torneos sin perder de vista los detalles importantes.
                                                 </div>
                                             </div>
                                         </div>
@@ -76,14 +76,14 @@
                                             <div class="card-header bg-inherit border-0 p-0">
                                                 <h2 class="mb-0">
                                                     <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse" data-target="#collapseFour">
-                                                        How can I edit my personal information?
+                                                      ¿Qué tipo de soporte técnico ofrece Futzo?
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseFour" class="collapse" data-parent="#sApp-accordion">
                                                 <!-- Card Body -->
                                                 <div class="card-body px-0 py-3">
-                                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                                                  Futzo ofrece soporte técnico 24/7 para todos sus usuarios. Nuestro equipo está disponible para ayudarte con cualquier problema técnico o consulta que puedas tener, asegurando que siempre tengas acceso a la asistencia que necesitas.
                                                 </div>
                                             </div>
                                         </div>
@@ -93,14 +93,14 @@
                                             <div class="card-header bg-inherit border-0 p-0">
                                                 <h2 class="mb-0">
                                                     <button class="btn collapsed px-0 py-3" type="button" data-toggle="collapse" data-target="#collapseFive">
-                                                        Contact form isn't working?
+                                                      ¿Es seguro almacenar los datos de mi liga en Futzo?
                                                     </button>
                                                 </h2>
                                             </div>
                                             <div id="collapseFive" class="collapse" data-parent="#sApp-accordion">
                                                 <!-- Card Body -->
                                                 <div class="card-body px-0 py-3">
-                                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+                                                  Absolutamente. Futzo utiliza tecnologías de encriptación avanzadas y copias de seguridad diarias para garantizar que todos tus datos estén seguros y protegidos. La privacidad y seguridad de tu información son nuestras prioridades.
                                                 </div>
                                             </div>
                                         </div>

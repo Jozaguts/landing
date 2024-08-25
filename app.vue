@@ -7,11 +7,9 @@ import DiscoverSection from '@/components/DiscoverSection/discoverTwo.vue'
 import ServiceSection from '@/components/ServiceSection/serviceTwo.vue'
 import WorkSection from '@/components/WorkSection/work.vue'
 import ScreenshotSection from '@/components/ScreenshotSection/screenshotTwo.vue'
-import ReviewSection from '@/components/ReviewSection/reviewTwo.vue'
 import PricingSection from '@/components/PricingSection/pricingOne.vue'
 import FaqSection from '@/components/FaqSection/faqTwo.vue'
 import NewsletterSection from '@/components/NewsletterSection/newsletter.vue'
-import ContactSection from '@/components/ContactSection/contactOne.vue'
 import FooterSection from '@/components/FooterSection/footerOne.vue'
 </script>
 <template>
@@ -20,17 +18,17 @@ import FooterSection from '@/components/FooterSection/footerOne.vue'
     <div class="main">
       <HeaderSection />
       <HeroSection/>
-      <FeatureSection />
+      <FeatureSection />  
       <DiscoverSection />
       <ServiceSection />
       <WorkSection />
       <ScreenshotSection />
-      <ReviewSection />
+<!--      <ReviewSection />-->
       <PricingSection />
       <FaqSection />
 <!--      <DownloadSection />-->
       <NewsletterSection />
-      <ContactSection />
+<!--      <ContactSection />-->
       <FooterSection />
     </div>
   </div>

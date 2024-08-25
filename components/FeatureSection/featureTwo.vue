@@ -5,8 +5,9 @@
                     <div class="col-12 col-md-10 col-lg-6">
                         <!-- Section Heading -->
                         <div class="section-heading text-center">
-                            <h2>Características que Marcan la Diferencia</h2>
-                            <p class="d-none d-sm-block mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.</p>
+                            <h2>Características principales de Futzo para la gestión de ligas de fútbol</h2>
+                            <p class="d-none d-sm-block mt-4">Todas las herramientas que necesitas en un solo lugar
+                              Con Futzo, controla todos los aspectos de tu liga de fútbol.</p>
                             <p class="d-block d-sm-none mt-4">Futzo te ofrece todo lo que necesitas para gestionar tu liga de fútbol de manera eficiente y profesional.</p>
                         </div>
                     </div>
@@ -17,7 +18,7 @@
                         <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s">
                             <!-- Featured Icon -->
                             <div class="featured-icon mb-3">
-                                <span class="flaticon-tap"></span>
+                              <nuxt-icon class="feature-icon" name="trophy" filled></nuxt-icon>
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
@@ -31,7 +32,7 @@
                         <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
                             <!-- Featured Icon -->
                             <div class="featured-icon mb-3">
-                                <span class="flaticon-fingerprint"></span>
+                              <nuxt-icon class="feature-icon" name="calendar" filled></nuxt-icon>
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
@@ -45,7 +46,8 @@
                         <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s">
                             <!-- Featured Icon -->
                             <div class="featured-icon mb-3">
-                                <span class="flaticon-notification"></span>
+                                <nuxt-icon name="field" filled class="feature-icon" />
+
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
@@ -59,11 +61,11 @@
                         <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">
                             <!-- Featured Icon -->
                             <div class="featured-icon mb-3">
-                                <span class="flaticon-place"></span>
+                              <nuxt-icon name="football" filled class="feature-icon" />
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
-                                <h3 class="mb-2">Control de Equipos y Jugadores</h3>
+                                <h3 class="mb-2">Gestión de Equipos y Jugadores</h3>
                                 <p>Mantén un registro detallado de los equipos y jugadores, incluyendo estadísticas, rendimientos y más.</p>
                             </div>
                         </div>
@@ -73,7 +75,7 @@
                         <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.8s">
                             <!-- Featured Icon -->
                             <div class="featured-icon mb-3">
-                                <span class="flaticon-settings"></span>
+                                <nuxt-icon name="communication" filled class="feature-icon" />
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
@@ -87,7 +89,7 @@
                         <div class="icon-box text-center p-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
                             <!-- Featured Icon -->
                             <div class="featured-icon mb-3">
-                                <span class="flaticon-language"></span>
+                                <nuxt-icon name="stats" filled class="feature-icon" />
                             </div>
                             <!-- Icon Text -->
                             <div class="icon-text">
@@ -108,5 +110,10 @@ export default {
 </script>
 
 <style>
-
+.nuxt-icon.feature-icon svg{
+  width: 70px;
+  height: 70px;
+  min-height: 100%;
+  min-width: 100%;
+}
 </style>

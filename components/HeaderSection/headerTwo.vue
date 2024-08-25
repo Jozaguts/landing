@@ -23,7 +23,7 @@
                             <a class="nav-link scroll" href="#home">Home</a>
                           </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#features">características</a>
+                                <a class="nav-link scroll" href="#features">Características</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link scroll" href="#screenshots">Imágenes</a>
@@ -31,9 +31,9 @@
                             <li class="nav-item">
                                 <a class="nav-link scroll" href="#pricing">Precio</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link scroll" href="#contact">Contacto</a>
-                            </li>
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link scroll" href="#contact">Contacto</a>-->
+<!--                            </li>-->
                         </ul>
                     </nav>
                 </div>

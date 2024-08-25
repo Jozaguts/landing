@@ -19,5 +19,5 @@ export default defineNuxtConfig({
     "~/assets/css/responsive.css",
   ],
 
-  modules: ["@nuxtjs/fontaine"]
+  modules: ["@nuxtjs/fontaine", "nuxt-icons"]
 })

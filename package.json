@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxtjs/fontaine": "^0.4.3",
     "nuxt": "^3.12.4",
+    "nuxt-icons": "^3.2.1",
     "vue": "latest"
   }
 }

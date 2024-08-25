@@ -11,27 +11,20 @@
                             <div class="footer-items">
                                 <!-- Logo -->
                                 <a class="navbar-brand" href="#">
-                                    <img class="logo" src="assets/img/logo.png" alt="">
+                                    <img class="logo" src="assets/img/logos/vertical/logo-07.png" alt="futzo plataforma admintrativa de ligas deportivas">
                                 </a>
-                                <p class="mt-2 mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis non, fugit totam vel laboriosam vitae.</p>
+                                <p class="mt-2 mb-3">El control total de tu liga de fútbol, en un solo lugar.</p>
                                 <!-- Social Icons -->
                                 <div class="social-icons d-flex">
-                                    <a class="facebook" href="#">
+                                    <a class="facebook" href="https://www.facebook.com/futzo.io">
                                         <i class="fab fa-facebook-f"></i>
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
-                                    <a class="twitter" href="#">
-                                        <i class="fab fa-twitter"></i>
-                                        <i class="fab fa-twitter"></i>
+                                    <a class="bg-danger" href="https://www.instagram.com/futzo.io/">
+                                        <i class="fab fa-instagram"></i>
+                                        <i class="fab fa-instagram"></i>
                                     </a>
-                                    <a class="google-plus" href="#">
-                                        <i class="fab fa-google-plus-g"></i>
-                                        <i class="fab fa-google-plus-g"></i>
-                                    </a>
-                                    <a class="vine" href="#">
-                                        <i class="fab fa-vine"></i>
-                                        <i class="fab fa-vine"></i>
-                                    </a>
+
                                 </div>
                             </div>
                         </div>
@@ -39,13 +32,12 @@
                             <!-- Footer Items -->
                             <div class="footer-items">
                                 <!-- Footer Title -->
-                                <h3 class="footer-title mb-2">Useful Links</h3>
+                                <h3 class="footer-title mb-2">Enlaces útiles</h3>
                                 <ul>
-                                    <li class="py-2"><a href="#">Home</a></li>
-                                    <li class="py-2"><a href="#">About Us</a></li>
-                                    <li class="py-2"><a href="#">Services</a></li>
-                                    <li class="py-2"><a href="#">Blog</a></li>
-                                    <li class="py-2"><a href="#">Contact</a></li>
+                                    <li class="py-2"><a href="#home">Home</a></li>
+                                    <li class="py-2"><a href="#features">Características</a></li>
+                                    <li class="py-2"><a href="#screenshots">Imágenes</a></li>
+<!--                                    <li class="py-2"><a href="#contact">Contacto</a></li>-->
                                 </ul>
                             </div>
                         </div>
@@ -53,30 +45,14 @@
                             <!-- Footer Items -->
                             <div class="footer-items">
                                 <!-- Footer Title -->
-                                <h3 class="footer-title mb-2">Product Help</h3>
+                                <h3 class="footer-title mb-2">Ayuda del producto</h3>
                                 <ul>
-                                    <li class="py-2"><a href="#">FAQ</a></li>
-                                    <li class="py-2"><a href="#">Privacy Policy</a></li>
-                                    <li class="py-2"><a href="#">Support</a></li>
-                                    <li class="py-2"><a href="#">Terms &amp; Conditions</a></li>
-                                    <li class="py-2"><a href="#">Contact</a></li>
+                                    <li class="py-2"><a href="#faq">Preguntas frecuentes</a></li>
+                                    <li class="py-2"><a href="#">Política de privacidad</a></li>
+<!--                                    <li class="py-2"><a href="#">Ayuda</a></li>-->
+<!--                                    <li class="py-2"><a href="#">Términos y condiciones</a></li>-->
+<!--                                    <li class="py-2"><a href="#contact">Contacto</a></li>-->
                                 </ul>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-3">
-                            <!-- Footer Items -->
-                            <div class="footer-items">
-                                <!-- Footer Title -->
-                                <h3 class="footer-title mb-2">Download</h3>
-                                <!-- Store Buttons -->
-                                <div class="button-group store-buttons store-black d-flex flex-wrap">
-                                    <a href="#">
-                                        <img src="assets/img/google_play_black.png" alt="">
-                                    </a>
-                                    <a href="#">
-                                        <img src="assets/img/app_store_black.png" alt="">
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,9 +66,9 @@
                             <!-- Copyright Area -->
                             <div class="copyright-area d-flex flex-wrap justify-content-center justify-content-sm-between text-center py-4">
                                 <!-- Copyright Left -->
-                                <div class="copyright-left">&copy; Copyrights 2020 sApp All rights reserved.</div>
+                                <div class="copyright-left">&copy; Copyrights {{new Date().getFullYear()}} Futzo todos los derechos reservados.</div>
                                 <!-- Copyright Right -->
-                                <div class="copyright-right">Made with <i class="fas fa-heart"></i> By <a href="#">Theme Land</a></div>
+<!--                                <div class="copyright-right">Made with <i class="fas fa-heart"></i> By <a href="#">Theme Land</a></div>-->
                             </div>
                         </div>
                     </div>

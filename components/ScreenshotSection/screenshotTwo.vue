@@ -5,9 +5,9 @@
                     <div class="col-12 col-md-10 col-lg-7">
                         <!-- Section Heading -->
                         <div class="section-heading text-center">
-                            <h2 class="text-capitalize">Simple &amp; Beautiful Interface</h2>
-                            <p class="d-none d-sm-block mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.</p>
-                            <p class="d-block d-sm-none mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati.</p>
+                            <h2 class="text-capitalize">Interfaz Simple y Atractiva</h2>
+                            <p class="d-none d-sm-block mt-4">Futzo ofrece una interfaz clara y organizada, diseñada para facilitar la gestión eficiente de tu liga de fútbol. Navega fácilmente por todas las funciones clave.</p>
+                            <p class="d-block d-sm-none mt-4">Futzo te facilita gestionar tu liga con una interfaz intuitiva y visualmente atractiva.</p>
                         </div>
                     </div>
                 </div>
@@ -17,11 +17,11 @@
                         <div class="app-screenshots">
                             <!-- Single Screenshot Item -->
                             <div class="single-screenshot">
-                                <img src="assets/img/screenshot_1.jpg" alt="">
+                                <img src="assets/img/screenshot_3.jpg" alt="pagina de registro">
                             </div>
                             <!-- Single Screenshot Item -->
                             <div class="single-screenshot">
-                                <img src="assets/img/screenshot_2.jpg" alt="">
+                                <img src="assets/img/screenshot_3.jpg" alt="">
                             </div>
                             <!-- Single Screenshot Item -->
                             <div class="single-screenshot">
