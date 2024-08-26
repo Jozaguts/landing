@@ -12,7 +12,7 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f https://$GITHUB_TOKEN@github.com/Jozaguts/futzo.git master:web
+git push -f https://$GITHUB_TOKEN@github.com/Jozaguts/landing.git master:web
 
 cd -
 rm -rf /.output
