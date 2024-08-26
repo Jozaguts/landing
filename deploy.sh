@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 if [ -f .env.prod ]; then
+    # shellcheck disable=SC2046
     export $(cat .env.prod | grep -v '^#' | xargs)
 fi
 
