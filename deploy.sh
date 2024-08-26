@@ -8,6 +8,7 @@ set -e
 npm run build
 cp ecosystem.config.cjs .output/
 cd .output/
+cp ../.gitignore ./
 
 git init
 git add -A
