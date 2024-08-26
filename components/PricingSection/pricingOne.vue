@@ -107,7 +107,8 @@
         </div>
       </div>
       <div class="row justify-content-center pt-5">
-        <p class="text-body pt-4 fw-5">¿No sabes qué elegir? <a href="#">Contáctanos</a></p>
+        <p class="text-body pt-4 fw-6">Satisfacción Garantizada en Todos Nuestros Planes</p>
+        <p class="text-body fw-2">Puedes probar cualquier plan con total confianza, sabiendo que, si no quedas satisfecho, te devolveremos tu dinero sin preguntas.</p>
       </div>
     </div>
   </section>

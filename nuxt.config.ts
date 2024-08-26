@@ -19,5 +19,14 @@ export default defineNuxtConfig({
     "~/assets/css/responsive.css",
   ],
 
-  modules: ["@nuxtjs/fontaine", "nuxt-icons"]
+  modules: ["@nuxtjs/fontaine", "nuxt-icons", "nuxt-meta-pixel"],
+  runtimeConfig: {
+    // Keys within public, will be also exposed to the client-side
+    public: {
+      apiBase: '',
+      metapixel: {
+        default: { id: '543648128091975', pageView: '/' },
+      }
+    }
+  }
 })
