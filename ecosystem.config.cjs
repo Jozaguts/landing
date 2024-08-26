@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: 'Dashboard',
+            name: 'landing',
             port: '3001',
             exec_mode: 'cluster',
             instances: 'max',
