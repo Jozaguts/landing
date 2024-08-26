@@ -5,7 +5,7 @@ if [ -f .env.prod ]; then
 fi
 
 set -e
-npm run build
+yarn run build
 cp ecosystem.config.cjs .output/
 cp .gitignore .output/
 cd .output/
