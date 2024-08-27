@@ -25,9 +25,10 @@ import FooterSection from '@/components/FooterSection/footerOne.vue'
       <ScreenshotSection />
 <!--      <ReviewSection />-->
       <PricingSection />
+      <NewsletterSection />
       <FaqSection />
 <!--      <DownloadSection />-->
-      <NewsletterSection />
+
 <!--      <ContactSection />-->
       <FooterSection />
     </div>

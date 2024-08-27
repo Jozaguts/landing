@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="height-emulator d-none d-lg-block"></div>
-        <footer class="footer-area footer-fixed">
+        <div class="height-emulator d-none d-lg-block "></div>
+        <footer class="footer-area footer-fixed bg-gray">
             <!-- Footer Top -->
             <div class="footer-top ptb_100">
                 <div class="container">
