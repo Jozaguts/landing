@@ -116,6 +116,7 @@
 
 <script>
 export default {
+  // VIEW_CONTENT
 
 }
 </script>
