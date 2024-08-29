@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     "~/assets/css/responsive.css",
   ],
 
-  modules: ["@nuxtjs/fontaine", "nuxt-icons", "nuxt-meta-pixel"],
+  modules: ["@nuxtjs/fontaine", "nuxt-icons", "nuxt-meta-pixel","@vueuse/nuxt"],
   runtimeConfig: {
     // Keys within public, will be also exposed to the client-side
     public: {
