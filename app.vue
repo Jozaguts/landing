@@ -25,8 +25,7 @@ const { stop } = useIntersectionObserver(
 )
 watch(() => pricingRefIsVisible.value, (value) => {
   if (value) {
-    console.log('Pricing Section is visible')
-    $fbq('track', 'ViewContent',{value: 100,content_type: 'pricing'})
+    $fbq('track', 'ViewContent',{value: 100, content_type: 'pricing'})
     stop()
   }
 })
