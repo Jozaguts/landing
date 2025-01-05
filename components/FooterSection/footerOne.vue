@@ -16,11 +16,11 @@
                 <p class="mt-2 mb-3">El control total de tu liga de fútbol, en un solo lugar.</p>
                 <!-- Social Icons -->
                 <div class="social-icons d-flex">
-                  <a class="facebook" href="https://www.facebook.com/futzo.io">
+                  <a class="facebook" href="https://www.facebook.com/futzo.io" aria-label="Visit Futzo on Facebook">
                     <i class="fab fa-facebook-f"></i>
                     <i class="fab fa-facebook-f"></i>
                   </a>
-                  <a class="bg-danger" href="https://www.instagram.com/futzo.io/">
+                  <a class="bg-danger" href="https://www.instagram.com/futzo.io/" aria-label="Visit Futzo on Instagram">
                     <i class="fab fa-instagram"></i>
                     <i class="fab fa-instagram"></i>
                   </a>
@@ -64,7 +64,6 @@
                 <!-- Copyright Left -->
                 <div class="copyright-left">&copy; Copyrights {{ new Date().getFullYear() }} Futzo todos los derechos reservados.</div>
                 <!-- Copyright Right -->
-                <!--                                <div class="copyright-right">Made with <i class="fas fa-heart"></i> By <a href="#">Theme Land</a></div>-->
               </div>
             </div>
           </div>
