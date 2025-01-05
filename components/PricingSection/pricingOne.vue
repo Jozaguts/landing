@@ -6,7 +6,8 @@
           <!-- Section Heading -->
           <div class="section-heading text-center">
             <h2>Desbloquea Todo el Potencial de Futzo</h2>
-            <p class="d-none d-sm-block mt-4">Lleva la gestión de tu liga al siguiente nivel con Futzo. Desde pequeñas ligas hasta grandes competiciones, te ofrecemos la solución perfecta.</p>
+            <p class="d-none d-sm-block mt-4">Lleva la gestión de tu liga al siguiente nivel con Futzo. Desde pequeñas ligas hasta grandes competiciones, te ofrecemos la solución
+              perfecta.</p>
             <p class="d-block d-sm-none mt-4">Gestión eficiente de tu liga de fútbol con las herramientas avanzadas de Futzo.</p>
           </div>
         </div>
@@ -23,11 +24,11 @@
                 </div>
                 <!-- Plan Title -->
                 <div class="plan-title my-2 my-sm-3">
-                  <h3 class="text-uppercase">Kickoff</h3>
+                  <p class="card-title text-uppercase">Kickoff</p>
                 </div>
                 <!-- Plan Price -->
                 <div class="plan-price pb-2 pb-sm-3">
-                  <h1 class="color-primary price-text"><small class="fw-7">$</small>25</h1>
+                  <span class="color-primary price-text"><small class="fw-7">$</small>25</span>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
@@ -39,7 +40,7 @@
                 </div>
                 <!-- Plan Button -->
                 <div class="plan-button" data-toggle="tooltip" data-placement="top" title="Próximamente">
-                  <a href="#" class="btn mt-4 disabled" >Registrarme</a>
+                  <a href="#" class="btn mt-4 disabled">Registrarme</a>
                 </div>
               </div>
             </div>
@@ -48,15 +49,15 @@
               <div class="single-price-plan text-center p-5 wow fadeInLeft" data-aos-duration="2s" data-wow-delay="0.4s">
                 <!-- Plan Thumb -->
                 <div class="plan-thumb">
-                  <img width="250" height="180" src="assets/img/logos/vertical/logo-07.png" alt="futzo logo vertical fondo primario">
+                  <img width="240" height="169" src="assets/img/logos/vertical/logo-07.png" alt="futzo logo vertical fondo primario">
                 </div>
                 <!-- Plan Title -->
                 <div class="plan-title my-2 my-sm-3">
-                  <h3 class="text-uppercase">ProPlay</h3>
+                  <p class="card-title text-uppercase">ProPlay</p>
                 </div>
                 <!-- Plan Price -->
                 <div class="plan-price pb-2 pb-sm-3">
-                  <h1 class="color-primary price-text"><small class="fw-7">$</small>39</h1>
+                  <span class="color-primary price-text"><small class="fw-7">$</small>39</span>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
@@ -82,11 +83,11 @@
                 </div>
                 <!-- Plan Title -->
                 <div class="plan-title my-2 my-sm-3">
-                  <h3 class="text-uppercase">EliteLeague</h3>
+                  <p class="card-title text-uppercase">EliteLeague</p>
                 </div>
                 <!-- Plan Price -->
                 <div class="plan-price pb-2 pb-sm-3">
-                  <h1 class="color-primary price-text"><small class="fw-7">$</small>119</h1>
+                  <span class="color-primary price-text"><small class="fw-7">$</small>119</span>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
@@ -124,8 +125,22 @@ export default {
 <style>
 .price-text {
   font-size: 3em;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #222;
 }
+
 .cursor-pointer:hover {
   cursor: pointer;
+}
+
+.card-title {
+  font-size: 20px;
+  letter-spacing: 3px;
+  opacity: 0.8;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0;
 }
 </style>
