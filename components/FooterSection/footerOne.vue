@@ -10,7 +10,7 @@
               <!-- Footer Items -->
               <div class="footer-items">
                 <!-- Logo -->
-                <a class="navbar-brand" href="javascript:void(0)">
+                <a class="navbar-brand" href="#">
                   <img class="logo" src="assets/img/logos/vertical/logo-07.png" alt="futzo plataforma admintrativa de ligas deportivas" width="240" height="169">
                 </a>
                 <p class="mt-2 mb-3">El control total de tu liga de fútbol, en un solo lugar.</p>
@@ -47,7 +47,12 @@
                 <h3 class="footer-title mb-2">Ayuda del producto</h3>
                 <ul>
                   <li class="py-2"><a href="#faq">Preguntas frecuentes</a></li>
-                  <li class="py-2"><a href="#">Política de privacidad</a></li>
+                  <li class="py-2">
+                    <nuxt-link to="/politicas-de-privacidad">Política de privacidad</nuxt-link>
+                  </li>
+                  <li class="py-2">
+                    <nuxt-link to="/terminos-de-servicio">Términos de servicio</nuxt-link>
+                  </li>
                 </ul>
               </div>
             </div>
