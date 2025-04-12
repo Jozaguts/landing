@@ -32,9 +32,9 @@
             <li class="nav-item">
               <a class="nav-link scroll" href="#pricing">Precio</a>
             </li>
-            <!--                            <li class="nav-item">-->
-            <!--                                <a class="nav-link scroll" href="#contact">Contacto</a>-->
-            <!--                            </li>-->
+            <li class="nav-item">
+                <a class="nav-link scroll" href="https://futzo.io">Ingresar</a>
+            </li>
           </ul>
         </nav>
       </div>
