@@ -5,10 +5,10 @@
                     <div class="col-12 col-md-10 col-lg-6">
                         <!-- Section Heading -->
                         <div class="section-heading text-center">
-                            <h2>Características principales de Futzo para la gestión de ligas de fútbol</h2>
+                            <h2>Características principales de Futzo.io para la gestión de ligas de fútbol</h2>
                             <p class="d-none d-sm-block mt-4">Todas las herramientas que necesitas en un solo lugar
-                              Con Futzo, controla todos los aspectos de tu liga de fútbol.</p>
-                            <p class="d-block d-sm-none mt-4">Futzo te ofrece todo lo que necesitas para gestionar tu liga de fútbol de manera eficiente y profesional.</p>
+                              Con Futzo.io, controla todos los aspectos de tu liga de fútbol.</p>
+                            <p class="d-block d-sm-none mt-4">Futzo.io te ofrece todo lo que necesitas para gestionar tu liga de fútbol de manera eficiente y profesional.</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
 
 <script>
 export default {
-    
+
 }
 </script>
 

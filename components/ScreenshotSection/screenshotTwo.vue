@@ -6,7 +6,7 @@
           <!-- Section Heading -->
           <div class="section-heading text-center">
             <h2 class="text-capitalize">Interfaz Simple y Atractiva</h2>
-            <p class="d-none d-sm-block mt-4">Futzo ofrece una interfaz clara y organizada, diseñada para facilitar la gestión eficiente de tu liga de fútbol. Navega fácilmente por
+            <p class="d-none d-sm-block mt-4">Futzo.io ofrece una interfaz clara y organizada, diseñada para facilitar la gestión eficiente de tu liga de fútbol. Navega fácilmente por
               todas las funciones clave.</p>
             <p class="d-block d-sm-none mt-4">Futzo te facilita gestionar tu liga con una interfaz intuitiva y visualmente atractiva.</p>
           </div>

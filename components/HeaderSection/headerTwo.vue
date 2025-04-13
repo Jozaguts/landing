@@ -3,9 +3,9 @@
     <div class="container position-relative">
       <a class="navbar-brand" href="/">
         <img class="navbar-brand-regular"
-             width="80"
-             height="56"
-             src="assets/img/logos/icon/logo-02.png" alt="brand-logo"
+             width="180"
+             height="60"
+             src="assets/img/logos/text only/logo-17.png" alt="Futzo.io logo">
         >
         <img class="navbar-brand-sticky" width="80" height="56" src="assets/img/logos/icon/logo-02.png" alt="sticky brand-logo">
       </a>

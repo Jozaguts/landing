@@ -5,7 +5,7 @@
         <div class="col-12 col-lg-6">
           <!-- Work Content -->
           <div class="work-content text-center">
-            <h2 class="text-white">¿Cómo funciona Futzo?</h2>
+            <h2 class="text-white">¿Cómo funciona Futzo.io?</h2>
             <p class="text-white my-3 mt-sm-4 mb-sm-5">Sigue estos pasos para empezar a disfrutar de sus beneficios.</p>
           </div>
         </div>
@@ -21,7 +21,7 @@
               </client-only>
             </div>
             <h3 class="text-white py-3">Regístrate y crea tu cuenta</h3>
-            <p class="text-white">Inscríbete en Futzo rápidamente. Con solo registrarte, tendrás acceso a todas las funciones que necesitas para administrar tu liga.</p>
+            <p class="text-white">Inscríbete en Futzo.io rápidamente. Con solo registrarte, tendrás acceso a todas las funciones que necesitas para administrar tu liga.</p>
           </div>
         </div>
         <div class="col-12 col-md-4">

@@ -5,7 +5,7 @@
         <div class="col-12 col-lg-6 order-2 order-lg-1">
           <!-- Service Text -->
           <div class="service-text pt-4 pt-lg-0">
-            <h2 class="mb-4">Características de Futzo</h2>
+            <h2 class="mb-4">Características de Futzo.io</h2>
             <!-- Service List -->
             <ul class="service-list">
               <!-- Single Service -->
@@ -80,7 +80,7 @@
         <div class="col-12 col-lg-4 order-1 order-lg-2 d-none d-md-block">
           <!-- Service Thumb -->
           <div class="service-thumb mx-auto">
-            <img src="assets/img/image4 - laptop - teams.png" alt="Características de futzo" width="274" height="550">
+            <img src="assets/img/image4 - laptop - teams.png" alt="Características de futzo.io" width="274" height="550">
           </div>
         </div>
       </div>

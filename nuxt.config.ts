@@ -15,6 +15,16 @@ export default defineNuxtConfig({
                 {src: 'https://futzo.s3.us-east-2.amazonaws.com/assets/js/scripts.js', tagPosition: 'bodyClose'},
 
             ],
+            meta: [
+                { name: 'description', content: 'Futzo.io es una plataforma para organizar y administrar ligas deportivas.' },
+                { property: 'og:site_name', content: 'Futzo.io' },
+                { property: 'og:title', content: 'Futzo.io - Gestiona tu liga como un profesional' },
+                { property: 'og:description', content: 'Crea torneos, registra equipos y jugadores, genera calendarios y estadísticas desde una plataforma intuitiva.' },
+                { property: 'og:image', content: 'https://hola.futzo.io/images/futzo.png' },
+                { property: 'og:url', content: 'https://hola.futzo.io' },
+                { property: 'og:site_name', content: 'Futzo.io' },
+                { property: 'og:type', content: 'website' },
+              ]
         }
     },
     css: [

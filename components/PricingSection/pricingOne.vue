@@ -5,8 +5,8 @@
         <div class="col-12 col-md-10 col-lg-7">
           <!-- Section Heading -->
           <div class="section-heading text-center">
-            <h2>Desbloquea Todo el Potencial de Futzo</h2>
-            <p class="d-none d-sm-block mt-4">Lleva la gestión de tu liga al siguiente nivel con Futzo. Desde pequeñas ligas hasta grandes competiciones, te ofrecemos la solución
+            <h2>Desbloquea Todo el Potencial de Futzo.io</h2>
+            <p class="d-none d-sm-block mt-4">Lleva la gestión de tu liga al siguiente nivel con Futzo.io Desde pequeñas ligas hasta grandes competiciones, te ofrecemos la solución
               perfecta.</p>
             <p class="d-block d-sm-none mt-4">Gestión eficiente de tu liga de fútbol con las herramientas avanzadas de Futzo.</p>
           </div>
@@ -64,7 +64,7 @@
                   <ul class="plan-features">
                     <li class="border-top py-3">Plan Kickoff</li>
                     <li class="border-top py-3 ">Registro Automátizado, genera URLs únicas para inscripción directa en torneos.</li>
-                    <li class="border-top py-3">Configuración visual, asegura que futzo coincida con tu liga.</li>
+                    <li class="border-top py-3">Configuración visual, asegura que futzo.io coincida con tu liga.</li>
                     <li class="border-top border-bottom py-3">Soporte</li>
                   </ul>
                 </div>

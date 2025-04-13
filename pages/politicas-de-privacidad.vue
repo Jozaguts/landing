@@ -398,7 +398,7 @@
                 <!-- Copyright Area -->
                 <div class="copyright-area d-flex flex-wrap justify-content-center justify-content-sm-between text-center py-4">
                   <!-- Copyright Left -->
-                  <div class="copyright-left">&copy; Copyrights {{ new Date().getFullYear() }} Futzo todos los derechos reservados.</div>
+                  <div class="copyright-left">&copy; Copyrights {{ new Date().getFullYear() }} Futzo.io todos los derechos reservados.</div>
                   <!-- Copyright Right -->
                 </div>
                 <nuxt-link to="/politicas-de-privacidad" class="mr-2">Política de privacidad</nuxt-link>
