@@ -1,10 +1,9 @@
 module.exports = {
     apps: [
         {
-            name: 'landing',
+            name: 'hola.futzo.io',
             port: '3001',
-            exec_mode: 'cluster',
-            instances: 'max',
+            exec_mode: 'fork',
             script: './server/index.mjs',
             env: {
                 NODE_ENV: 'production',
