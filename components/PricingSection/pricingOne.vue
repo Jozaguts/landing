@@ -28,7 +28,7 @@
                 </div>
                 <!-- Plan Price -->
                 <div class="plan-price pb-2 pb-sm-3">
-                  <span class="color-primary price-text"><small class="fw-7">$</small>25</span>
+                  <span class="color-primary price-text"><small class="fw-7">$</small>499</span>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
@@ -57,7 +57,7 @@
                 </div>
                 <!-- Plan Price -->
                 <div class="plan-price pb-2 pb-sm-3">
-                  <span class="color-primary price-text"><small class="fw-7">$</small>39</span>
+                  <span class="color-primary price-text"><small class="fw-7">$</small>799</span>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
@@ -87,7 +87,7 @@
                 </div>
                 <!-- Plan Price -->
                 <div class="plan-price pb-2 pb-sm-3">
-                  <span class="color-primary price-text"><small class="fw-7">$</small>119</span>
+                  <span class="color-primary price-text"><small class="fw-7">$</small>1499</span>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
