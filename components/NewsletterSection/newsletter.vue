@@ -62,10 +62,10 @@ onMounted(() => {
       <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-7">
           <div class="subscribe-content text-center">
-            <h2>¡Mantente al Tanto del Lanzamiento de Futzo.io!</h2>
-            <p class="my-4">Únete a nuestra lista de espera ingresando tu correo electrónico. Si estás entre los primeros 100 en registrarte, podrías recibir un código promocional
-              que te otorgará hasta un 50% de descuento o incluso acceso gratuito por tiempo limitado. ¡No te pierdas esta oportunidad!</p>
-            <!-- Subscribe Form -->
+            <h2>Paga menos, juega más: primer mes en <strong>Futzo</strong> por <strong>$299 MXN</strong></h2>
+            <p class="mt-4"> Administra tu <strong>liga de fútbol</strong> con facilidad: registra equipos y jugadores, genera calendarios
+              y lleva estadísticas en un solo lugar. Tu <strong>primer mes</strong> cuesta solo <strong>$299 MXN</strong>,
+              válido para <strong>cualquier plan</strong>.</p>
             <form class="subscribe-form" @submit.prevent="submitForm">
               <div class="form-group">
 
@@ -82,7 +82,7 @@ onMounted(() => {
                   Ingresa un correo electrónico válido.
                 </div>
               </div>
-              <button :disabled="isSubmitted" type="submit" class="btn btn-lg btn-block">Unirme
+              <button :disabled="isSubmitted" type="submit" class="btn btn-lg btn-block"> Obtener cupón de Futzo
                 <span v-show="isSubmitted" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
               </button>
             </form>
@@ -91,9 +91,34 @@ onMounted(() => {
       </div>
     </div>
   </section>
+  <component :is="'script'" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo obtengo el cupón de $299 MXN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ingresa tu correo en el formulario y te enviaremos el cupón por email para aplicarlo al momento de tu primera facturación."
+          }
+        },
+      {
+        "@type": "Question",
+        "name": "¿El precio de $299 MXN aplica a cualquier plan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. El cupón reduce el costo del primer mes a $299 MXN en cualquier plan de Futzo."
+        }
+      }
+    ]
+  }
+  </component>
 </template>
 <style scoped>
 button.btn {
   background: linear-gradient(-47deg, #28243D 0%, #9155FD 100%) !important;
 }
 </style>
+

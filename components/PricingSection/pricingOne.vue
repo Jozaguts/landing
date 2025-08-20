@@ -1,36 +1,17 @@
 <script setup lang="ts">
-  let defaultPrices = {
-  kickoff: {
-    price: '499',
-    cta: 'Empieza Simple'
-  },
-  proPlay:{
-    price: '799',
-    cta: '🔥 Comienza Ahora'
-  },
-  eliteLeague:{
-    price: '1,499',
-    cta: 'Plan Premium'
-  }
-}
-  const prices = ref({...defaultPrices})
-  const priceMode =ref('annually')
-  watch(priceMode,(value)=>{
-    if (value === 'annually') {
-      prices.value.kickoff.price = '429'
-      prices.value.proPlay.price = '699'
-      prices.value.eliteLeague.price = '1,249'
-    }else{
-      prices.value.kickoff.price = '499'
-      prices.value.proPlay.price = '799'
-      prices.value.eliteLeague.price = '1,499'
-    }
+  import type {ProductPrices} from "~/types";
+  const productPrices = ref<ProductPrices>();
+  const priceMode = ref<'annually_price' | 'monthly_price'>('annually_price')
+  const isAnnuallyPrice = computed(() => priceMode.value === 'annually_price')
+  onBeforeMount(async () => {
+    const config = useRuntimeConfig();
+    productPrices.value  = await $fetch<Promise<ProductPrices>>(config.public.apiBase + '/public/products/prices')
+    console.log( productPrices.value)
   })
-  const isAnnuallyPrice = computed(() => priceMode.value === 'annually')
 </script>
 <template>
   <section id="pricing" class="section price-plan-area  overflow-hidden ptb_100">
-    <div class="container">
+    <div v-if="productPrices" class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-7">
           <!-- Section Heading -->
@@ -46,10 +27,10 @@
         <div class="col-6">
           <ul class="nav nav-pills nav-justified">
             <li class="nav-item mx-2 mb-2">
-              <button @click="priceMode = 'annually'"  type="button" class="btn btn-block custom-btn" :class="{'active': priceMode ==='annually' }">Anual</button>
+              <button @click="priceMode = 'annually_price'"  type="button" class="btn btn-block custom-btn" :class="{'active': priceMode ==='annually_price' }">Anual</button>
             </li>
             <li class="nav-item">
-              <button @click="priceMode = 'monthly'" type="button" class="btn btn-block custom-btn" :class="{'active': priceMode ==='monthly' }">Mensual</button>
+              <button @click="priceMode = 'monthly_price'" type="button" class="btn btn-block custom-btn" :class="{'active': priceMode ==='monthly_price' }">Mensual</button>
             </li>
           </ul>
         </div>
@@ -69,11 +50,10 @@
                   <p class="card-title text-uppercase">Kickoff</p>
                 </div>
                 <!-- Plan Price -->
-                <div class="plan-price pb-2 pb-sm-3">
-                  <span class="color-primary price-text"><small class="fw-7">$</small>{{ prices.kickoff.price }}<small class="price-details">/ mes</small></span>
+                <div class="plan-price">
+                  <span class="color-primary price-text"><small class="fw-7">$</small>{{ productPrices.kickoff[priceMode] }}<small class="price-details">/ mes</small></span>
                 </div>
                 <div class="plan-price details" v-auto-animate :class="[isAnnuallyPrice ? 'py-2': '']">
-                  <p v-if="isAnnuallyPrice" >2 meses gratis (15%) </p>
                   <span v-if="isAnnuallyPrice" class="color-primary text-primary">Cuando paga anualmente</span>
                 </div>
                 <!-- Plan Description -->
@@ -86,7 +66,7 @@
                 </div>
                 <!-- Plan Button -->
                 <div class="plan-button" data-toggle="tooltip" data-placement="top" title="Próximamente">
-                  <a href="#" class="btn mt-4 disabled">Registrarme</a>
+                  <a href="#" class="btn mt-4">{{productPrices.kickoff.cta}} </a>
                 </div>
               </div>
             </div>
@@ -102,11 +82,10 @@
                   <p class="card-title text-uppercase">ProPlay</p>
                 </div>
                 <!-- Plan Price -->
-                <div class="plan-price pb-2 pb-sm-3">
-                  <span class="color-primary price-text"><small class="fw-7">$</small>{{ prices.proPlay.price }} <small class="price-details">/ mes</small></span>
+                <div class="plan-price">
+                  <span class="color-primary price-text"><small class="fw-7">$</small>{{ productPrices.pro_play[priceMode] }} <small class="price-details">/ mes</small></span>
                 </div>
                 <div class="plan-price details" v-auto-animate :class="[isAnnuallyPrice ? 'py-2': '']">
-                  <p v-if="isAnnuallyPrice" class="color-primary ">2 meses gratis (15%) </p>
                   <span v-if="isAnnuallyPrice" class="color-primary text-primary">Cuando paga anualmente</span>
                 </div>
                 <!-- Plan Description -->
@@ -120,7 +99,7 @@
                 </div>
                 <!-- Plan Button -->
                 <div class="plan-button" data-toggle="tooltip" data-placement="top" title="Próximamente">
-                  <a href="#" class="btn mt-4 disabled">Registrarme</a>
+                  <a href="#" class="btn mt-4">{{productPrices.pro_play.cta}} </a>
                 </div>
               </div>
             </div>
@@ -136,11 +115,10 @@
                   <p class="card-title text-uppercase">EliteLeague</p>
                 </div>
                 <!-- Plan Price -->
-                <div class="plan-price pb-2 pb-sm-3">
-                  <span class="color-primary price-text"><small class="fw-7">$</small>{{prices.eliteLeague.price}} <small class="price-details">/ mes</small></span>
+                <div class="plan-price">
+                  <span class="color-primary price-text"><small class="fw-7">$</small>{{productPrices.elite_league[priceMode]}} <small class="price-details">/ mes</small></span>
                 </div>
                 <div class="plan-price details" v-auto-animate :class="[isAnnuallyPrice ? 'py-2': '']">
-                  <p v-if="isAnnuallyPrice" class="color-primary ">2 meses gratis (15%) </p>
                   <span v-if="isAnnuallyPrice" class="color-primary text-primary">Cuando paga anualmente</span>
                 </div>
                 <!-- Plan Description -->
@@ -154,7 +132,7 @@
                 </div>
                 <!-- Plan Button -->
                 <div class="plan-button" data-toggle="tooltip" data-placement="top" title="Próximamente">
-                  <a href="#" class="btn mt-4 disabled">Registrarme</a>
+                  <a href="#" class="btn mt-4 ">{{productPrices.elite_league.cta}} </a>
                 </div>
               </div>
             </div>
@@ -194,7 +172,7 @@
     border: 1px solid #9155FD;
   }
 .price-text {
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 600;
   line-height: 1.2;
   color: #222;
