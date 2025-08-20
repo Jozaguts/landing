@@ -1,0 +1,2 @@
+export const PRE_REGISTER_CODE= 1000;
+export const PURCHASE_SUBSCRIPTION_CODE=2000;
