@@ -1,17 +1,16 @@
 <script setup lang="ts">
-  import type {ProductPrices} from "~/types";
-  const productPrices = ref<ProductPrices>();
-  const priceMode = ref<'annually_price' | 'monthly_price'>('annually_price')
-  const isAnnuallyPrice = computed(() => priceMode.value === 'annually_price')
-  onBeforeMount(async () => {
-    const config = useRuntimeConfig();
-    productPrices.value  = await $fetch<Promise<ProductPrices>>(config.public.apiBase + '/public/products/prices')
-    console.log( productPrices.value)
-  })
+const {
+    productPrices,
+    isAnnuallyPrice,
+    priceMode,
+    setPriceMode,
+    loading,
+    specialOffer
+  } = useProductPrices()
 </script>
 <template>
   <section id="pricing" class="section price-plan-area  overflow-hidden ptb_100">
-    <div v-if="productPrices" class="container">
+    <div v-if="!loading" class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-7">
           <!-- Section Heading -->
@@ -27,10 +26,10 @@
         <div class="col-6">
           <ul class="nav nav-pills nav-justified">
             <li class="nav-item mx-2 mb-2">
-              <button @click="priceMode = 'annually_price'"  type="button" class="btn btn-block custom-btn" :class="{'active': priceMode ==='annually_price' }">Anual</button>
+              <button @click="() => setPriceMode('annually_price')"  type="button" class="btn btn-block custom-btn" :class="{'active': priceMode ==='annually_price' }">Anual</button>
             </li>
             <li class="nav-item">
-              <button @click="priceMode = 'monthly_price'" type="button" class="btn btn-block custom-btn" :class="{'active': priceMode ==='monthly_price' }">Mensual</button>
+              <button @click="() => setPriceMode('monthly_price')" type="button" class="btn btn-block custom-btn" :class="{'active': priceMode ==='monthly_price' }">Mensual</button>
             </li>
           </ul>
         </div>
@@ -51,10 +50,13 @@
                 </div>
                 <!-- Plan Price -->
                 <div class="plan-price">
-                  <span class="color-primary price-text"><small class="fw-7">$</small>{{ productPrices.kickoff[priceMode] }}<small class="price-details">/ mes</small></span>
+                  <span class="color-primary price-text"><small class="fw-7"> {{ productPrices?.kickoff?.symbol }}</small>{{ productPrices?.kickoff[priceMode] }}<small class="price-details"> {{productPrices?.kickoff?.iso_code}} / mes</small></span>
                 </div>
                 <div class="plan-price details" v-auto-animate :class="[isAnnuallyPrice ? 'py-2': '']">
                   <span v-if="isAnnuallyPrice" class="color-primary text-primary">Cuando paga anualmente</span>
+                </div>
+                <div class="plan-price details py-2" v-auto-animate>
+                  <p class="color-primary text-primary">Oferta especial <strong>{{specialOffer}}</strong> por tu primer mes.</p>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
@@ -65,8 +67,8 @@
                   </ul>
                 </div>
                 <!-- Plan Button -->
-                <div class="plan-button" data-toggle="tooltip" data-placement="top" title="Próximamente">
-                  <a href="#" class="btn mt-4">{{productPrices.kickoff.cta}} </a>
+                <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="productPrices?.kickoff?.cta">
+                  <a href="#" class="btn mt-4">{{productPrices?.kickoff?.cta}} </a>
                 </div>
               </div>
             </div>
@@ -83,10 +85,13 @@
                 </div>
                 <!-- Plan Price -->
                 <div class="plan-price">
-                  <span class="color-primary price-text"><small class="fw-7">$</small>{{ productPrices.pro_play[priceMode] }} <small class="price-details">/ mes</small></span>
+                  <span class="color-primary price-text"><small class="fw-7">{{ productPrices?.pro_play?.symbol }}</small>{{ productPrices?.pro_play[priceMode] }} <small class="price-details">{{productPrices?.pro_play?.iso_code}} / mes</small></span>
                 </div>
                 <div class="plan-price details" v-auto-animate :class="[isAnnuallyPrice ? 'py-2': '']">
                   <span v-if="isAnnuallyPrice" class="color-primary text-primary">Cuando paga anualmente</span>
+                </div>
+                <div class="plan-price details py-2" v-auto-animate>
+                  <p class="color-primary text-primary">Oferta especial <strong>{{specialOffer}}</strong> por tu primer mes.</p>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
@@ -98,8 +103,8 @@
                   </ul>
                 </div>
                 <!-- Plan Button -->
-                <div class="plan-button" data-toggle="tooltip" data-placement="top" title="Próximamente">
-                  <a href="#" class="btn mt-4">{{productPrices.pro_play.cta}} </a>
+                <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="productPrices?.pro_play?.cta">
+                  <a href="#" class="btn mt-4">{{productPrices?.pro_play?.cta}} </a>
                 </div>
               </div>
             </div>
@@ -116,10 +121,13 @@
                 </div>
                 <!-- Plan Price -->
                 <div class="plan-price">
-                  <span class="color-primary price-text"><small class="fw-7">$</small>{{productPrices.elite_league[priceMode]}} <small class="price-details">/ mes</small></span>
+                  <span class="color-primary price-text"><small class="fw-7">{{ productPrices?.elite_league?.symbol }}</small>{{productPrices?.elite_league[priceMode]}} <small class="price-details">{{ productPrices?.elite_league?.iso_code }}/ mes</small></span>
                 </div>
                 <div class="plan-price details" v-auto-animate :class="[isAnnuallyPrice ? 'py-2': '']">
                   <span v-if="isAnnuallyPrice" class="color-primary text-primary">Cuando paga anualmente</span>
+                </div>
+                <div class="plan-price details py-2" v-auto-animate>
+                  <p class="color-primary text-primary">Oferta especial <strong>{{specialOffer}}</strong> por tu primer mes.</p>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
@@ -131,8 +139,8 @@
                   </ul>
                 </div>
                 <!-- Plan Button -->
-                <div class="plan-button" data-toggle="tooltip" data-placement="top" title="Próximamente">
-                  <a href="#" class="btn mt-4 ">{{productPrices.elite_league.cta}} </a>
+                <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="productPrices?.elite_league.cta">
+                  <a href="#" class="btn mt-4 ">{{productPrices?.elite_league.cta}} </a>
                 </div>
               </div>
             </div>
@@ -153,6 +161,13 @@
   .plan-price.details p{
     font-weight: bold;
     font-size: 14px;
+  }
+  .plan-price.details p{
+    border: 1px solid #9155FD;
+    border-radius: 4px;
+    padding: .5rem 1rem;
+    background: transparent;
+    color: #565656 !important;
   }
   .plan-price.details span{
     font-weight: bold;
