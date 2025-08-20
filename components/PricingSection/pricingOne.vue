@@ -1,3 +1,33 @@
+<script setup lang="ts">
+  let defaultPrices = {
+  kickoff: {
+    price: '499',
+    cta: 'Empieza Simple'
+  },
+  proPlay:{
+    price: '799',
+    cta: '🔥 Comienza Ahora'
+  },
+  eliteLeague:{
+    price: '1,499',
+    cta: 'Plan Premium'
+  }
+}
+  const prices = ref({...defaultPrices})
+  const priceMode =ref('annually')
+  watch(priceMode,(value)=>{
+    if (value === 'annually') {
+      prices.value.kickoff.price = '429'
+      prices.value.proPlay.price = '699'
+      prices.value.eliteLeague.price = '1,249'
+    }else{
+      prices.value.kickoff.price = '499'
+      prices.value.proPlay.price = '799'
+      prices.value.eliteLeague.price = '1,499'
+    }
+  })
+  const isAnnuallyPrice = computed(() => priceMode.value === 'annually')
+</script>
 <template>
   <section id="pricing" class="section price-plan-area  overflow-hidden ptb_100">
     <div class="container">
@@ -10,6 +40,18 @@
               perfecta.</p>
             <p class="d-block d-sm-none mt-4">Gestión eficiente de tu liga de fútbol con las herramientas avanzadas de Futzo.</p>
           </div>
+        </div>
+      </div>
+      <div class="row justify-content-center pb-2">
+        <div class="col-6">
+          <ul class="nav nav-pills nav-justified">
+            <li class="nav-item mx-2 mb-2">
+              <button @click="priceMode = 'annually'"  type="button" class="btn btn-block custom-btn" :class="{'active': priceMode ==='annually' }">Anual</button>
+            </li>
+            <li class="nav-item">
+              <button @click="priceMode = 'monthly'" type="button" class="btn btn-block custom-btn" :class="{'active': priceMode ==='monthly' }">Mensual</button>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -28,7 +70,11 @@
                 </div>
                 <!-- Plan Price -->
                 <div class="plan-price pb-2 pb-sm-3">
-                  <span class="color-primary price-text"><small class="fw-7">$</small>499</span>
+                  <span class="color-primary price-text"><small class="fw-7">$</small>{{ prices.kickoff.price }}<small class="price-details">/ mes</small></span>
+                </div>
+                <div class="plan-price details" v-auto-animate :class="[isAnnuallyPrice ? 'py-2': '']">
+                  <p v-if="isAnnuallyPrice" >2 meses gratis (15%) </p>
+                  <span v-if="isAnnuallyPrice" class="color-primary text-primary">Cuando paga anualmente</span>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
@@ -57,7 +103,11 @@
                 </div>
                 <!-- Plan Price -->
                 <div class="plan-price pb-2 pb-sm-3">
-                  <span class="color-primary price-text"><small class="fw-7">$</small>799</span>
+                  <span class="color-primary price-text"><small class="fw-7">$</small>{{ prices.proPlay.price }} <small class="price-details">/ mes</small></span>
+                </div>
+                <div class="plan-price details" v-auto-animate :class="[isAnnuallyPrice ? 'py-2': '']">
+                  <p v-if="isAnnuallyPrice" class="color-primary ">2 meses gratis (15%) </p>
+                  <span v-if="isAnnuallyPrice" class="color-primary text-primary">Cuando paga anualmente</span>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
@@ -87,7 +137,11 @@
                 </div>
                 <!-- Plan Price -->
                 <div class="plan-price pb-2 pb-sm-3">
-                  <span class="color-primary price-text"><small class="fw-7">$</small>1499</span>
+                  <span class="color-primary price-text"><small class="fw-7">$</small>{{prices.eliteLeague.price}} <small class="price-details">/ mes</small></span>
+                </div>
+                <div class="plan-price details" v-auto-animate :class="[isAnnuallyPrice ? 'py-2': '']">
+                  <p v-if="isAnnuallyPrice" class="color-primary ">2 meses gratis (15%) </p>
+                  <span v-if="isAnnuallyPrice" class="color-primary text-primary">Cuando paga anualmente</span>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
@@ -114,15 +168,31 @@
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  // VIEW_CONTENT
-
-}
-</script>
-
 <style>
+  .plan-price.details{
+    border-radius: 4px;
+  }
+  .plan-price.details p{
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .plan-price.details span{
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .price-details{
+    font-size: 14px;
+  }
+  .custom-btn, .custom-btn:hover {
+   color: #444;
+    background: transparent;
+    border: 1px solid #9155FD;
+  }
+  .custom-btn.active {
+    color: white;
+    background: linear-gradient(-47deg, #28243D 0%, #9155FD 100%);
+    border: 1px solid #9155FD;
+  }
 .price-text {
   font-size: 3em;
   font-weight: 600;

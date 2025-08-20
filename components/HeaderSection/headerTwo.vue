@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const imgSrc = computed(() => {
-  return useRoute().name === 'thank-you' ? 'images/logo-19.png' : 'images/logo-17.png'
+  return useRoute().name === 'gracias' ? 'images/logo-19.png' : 'images/logo-17.png'
 })
 </script>
 <template>
@@ -18,7 +18,7 @@ const imgSrc = computed(() => {
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="navbarToggler" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <nav v-if="useRoute().name !== 'thank-you'">
+        <nav v-if="useRoute().name !== 'gracias'">
           <ul class="navbar-nav" id="navbar-nav">
             <li class="nav-item">
               <a class="nav-link scroll" href="#home">Home</a>
