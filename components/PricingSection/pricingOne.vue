@@ -65,7 +65,7 @@ const {
                 </div>
                 <!-- Plan Button -->
                 <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="kickOffPrice?.cta">
-                  <a href="#" class="btn mt-4">{{kickOffPrice?.cta}} </a>
+                  <a :href="kickOffPrice?.url" class="btn mt-4">{{kickOffPrice?.cta}} </a>
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@ const {
                 </div>
                 <!-- Plan Button -->
                 <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="proPlayPrice?.cta">
-                  <a href="#" class="btn mt-4">{{proPlayPrice?.cta}} </a>
+                  <a :href="proPlayPrice?.url" class="btn mt-4">{{proPlayPrice?.cta}} </a>
                 </div>
               </div>
             </div>
@@ -129,7 +129,7 @@ const {
                 </div>
                 <!-- Plan Button -->
                 <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="eliteLeaguePrice?.cta">
-                  <a href="#" class="btn mt-4 ">{{eliteLeaguePrice?.cta}} </a>
+                  <a :href="eliteLeaguePrice?.url" class="btn mt-4 ">{{eliteLeaguePrice?.cta}} </a>
                 </div>
               </div>
             </div>
