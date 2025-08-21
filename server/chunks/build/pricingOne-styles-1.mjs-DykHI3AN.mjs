@@ -1,0 +1,4 @@
+const pricingOne_vue_vue_type_style_index_0_lang = ".plan-price.details{background:transparent;border:1px solid #9155fd;border-radius:4px;padding:.5rem 1rem}.plan-price.details p{font-size:14px;font-weight:700}.plan-price.details span{font-size:12px;font-weight:700}.price-details{font-size:14px}.custom-btn,.custom-btn:hover{background:transparent;border:1px solid #9155fd;color:#444}.custom-btn.active{background:linear-gradient(-47deg,#28243d,#9155fd);border:1px solid #9155fd;color:#fff}.price-text{color:#222;font-size:2em;font-weight:600;line-height:1.2}.cursor-pointer:hover{cursor:pointer}.card-title{color:#222;font-size:20px;font-weight:600;letter-spacing:3px;line-height:1.2;margin-bottom:0;opacity:.8}";
+
+export { pricingOne_vue_vue_type_style_index_0_lang as p };
+//# sourceMappingURL=pricingOne-styles-1.mjs-DykHI3AN.mjs.map
