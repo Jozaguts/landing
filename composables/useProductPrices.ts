@@ -10,8 +10,21 @@ export function useProductPrices() {
         () => 'annually_price'
     )
     const isAnnuallyPrice = computed(() => priceMode.value === 'annually_price')
-    const specialOffer = computed(() => productPrices.value?.special_offer)
-
+    const kickOffPrice = computed(() => {
+        return isAnnuallyPrice.value
+            ? productPrices.value?.kickoff.prices['annually']
+            : productPrices.value?.kickoff.prices['monthly']
+    })
+    const proPlayPrice = computed(() => {
+        return isAnnuallyPrice.value
+            ? productPrices.value?.pro_play.prices['annually']
+            : productPrices.value?.pro_play.prices['monthly']
+    })
+    const eliteLeaguePrice = computed(() => {
+        return isAnnuallyPrice.value
+            ? productPrices.value?.elite_league.prices['annually']
+            : productPrices.value?.elite_league.prices['monthly']
+    })
     const _inFlight = useState<Promise<void> | null>('productPrices:inflight', () => null)
     async function load(force = false) {
         // Guard against duplicate calls and allow optional force refresh
@@ -57,7 +70,9 @@ export function useProductPrices() {
 
         // derived
         isAnnuallyPrice,
-        specialOffer,
+        kickOffPrice,
+        proPlayPrice,
+        eliteLeaguePrice,
 
         // actions
         load,

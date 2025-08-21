@@ -1,11 +1,12 @@
 <script setup lang="ts">
 const {
-    productPrices,
+    kickOffPrice,
+    proPlayPrice,
+    eliteLeaguePrice,
     isAnnuallyPrice,
     priceMode,
     setPriceMode,
     loading,
-    specialOffer
   } = useProductPrices()
 </script>
 <template>
@@ -49,14 +50,10 @@ const {
                   <p class="card-title text-uppercase">Kickoff</p>
                 </div>
                 <!-- Plan Price -->
-                <div class="plan-price">
-                  <span class="color-primary price-text"><small class="fw-7"> {{ productPrices?.kickoff?.symbol }}</small>{{ productPrices?.kickoff[priceMode] }}<small class="price-details"> {{productPrices?.kickoff?.iso_code}} / mes</small></span>
-                </div>
-                <div class="plan-price details" v-auto-animate :class="[isAnnuallyPrice ? 'py-2': '']">
-                  <span v-if="isAnnuallyPrice" class="color-primary text-primary">Cuando paga anualmente</span>
-                </div>
-                <div class="plan-price details py-2" v-auto-animate>
-                  <p class="color-primary text-primary">Oferta especial <strong>{{specialOffer}}</strong> por tu primer mes.</p>
+                <div class="plan-price" v-html="kickOffPrice?.price"></div>
+                <div class="plan-price details py-2 mt-2" v-auto-animate>
+                  <p class="promo" v-html="kickOffPrice?.promo"></p>
+                  <p v-if="isAnnuallyPrice" class="color-primary text-primary">Al pagar anualmente</p>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
@@ -67,8 +64,8 @@ const {
                   </ul>
                 </div>
                 <!-- Plan Button -->
-                <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="productPrices?.kickoff?.cta">
-                  <a href="#" class="btn mt-4">{{productPrices?.kickoff?.cta}} </a>
+                <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="kickOffPrice?.cta">
+                  <a href="#" class="btn mt-4">{{kickOffPrice?.cta}} </a>
                 </div>
               </div>
             </div>
@@ -84,27 +81,23 @@ const {
                   <p class="card-title text-uppercase">ProPlay</p>
                 </div>
                 <!-- Plan Price -->
-                <div class="plan-price">
-                  <span class="color-primary price-text"><small class="fw-7">{{ productPrices?.pro_play?.symbol }}</small>{{ productPrices?.pro_play[priceMode] }} <small class="price-details">{{productPrices?.pro_play?.iso_code}} / mes</small></span>
-                </div>
-                <div class="plan-price details" v-auto-animate :class="[isAnnuallyPrice ? 'py-2': '']">
-                  <span v-if="isAnnuallyPrice" class="color-primary text-primary">Cuando paga anualmente</span>
-                </div>
-                <div class="plan-price details py-2" v-auto-animate>
-                  <p class="color-primary text-primary">Oferta especial <strong>{{specialOffer}}</strong> por tu primer mes.</p>
+                <div class="plan-price" v-html="proPlayPrice?.price"></div>
+                <div class="plan-price details py-2 mt-2" v-auto-animate>
+                  <p class="promo" v-html="proPlayPrice?.promo"></p>
+                  <p v-if="isAnnuallyPrice" class="color-primary text-primary">Al pagar anualmente</p>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
                   <ul class="plan-features">
-                    <li class="border-top py-3">Plan Kickoff</li>
-                    <li class="border-top py-3 ">Registro Automátizado, genera URLs únicas para inscripción directa en torneos.</li>
+                    <li class="border-top py-3">Incluye todo de Kickoff</li>
+                    <li class="border-top py-3 ">Registro automatizado, genera URLs únicas para inscripción directa en torneos.</li>
                     <li class="border-top py-3">Configuración visual, asegura que futzo.io coincida con tu liga.</li>
                     <li class="border-top border-bottom py-3">Soporte</li>
                   </ul>
                 </div>
                 <!-- Plan Button -->
-                <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="productPrices?.pro_play?.cta">
-                  <a href="#" class="btn mt-4">{{productPrices?.pro_play?.cta}} </a>
+                <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="proPlayPrice?.cta">
+                  <a href="#" class="btn mt-4">{{proPlayPrice?.cta}} </a>
                 </div>
               </div>
             </div>
@@ -120,27 +113,23 @@ const {
                   <p class="card-title text-uppercase">EliteLeague</p>
                 </div>
                 <!-- Plan Price -->
-                <div class="plan-price">
-                  <span class="color-primary price-text"><small class="fw-7">{{ productPrices?.elite_league?.symbol }}</small>{{productPrices?.elite_league[priceMode]}} <small class="price-details">{{ productPrices?.elite_league?.iso_code }}/ mes</small></span>
-                </div>
-                <div class="plan-price details" v-auto-animate :class="[isAnnuallyPrice ? 'py-2': '']">
-                  <span v-if="isAnnuallyPrice" class="color-primary text-primary">Cuando paga anualmente</span>
-                </div>
-                <div class="plan-price details py-2" v-auto-animate>
-                  <p class="color-primary text-primary">Oferta especial <strong>{{specialOffer}}</strong> por tu primer mes.</p>
+                <div class="plan-price" v-html="eliteLeaguePrice?.price"></div>
+                <div class="plan-price details py-2 mt-2" v-auto-animate>
+                  <p class="promo" v-html="eliteLeaguePrice?.promo"></p>
+                  <p v-if="isAnnuallyPrice" class="color-primary text-primary">Al pagar anualmente</p>
                 </div>
                 <!-- Plan Description -->
                 <div class="plan-description">
                   <ul class="plan-features">
-                    <li class="border-top py-3">Plan ProPlay</li>
+                    <li class="border-top py-3">Incluye todo de ProPlay</li>
                     <li class="border-top py-3">Soporte prioritario</li>
                     <li class="border-top py-3">Acceso anticipado a futuras actualizaciones</li>
                     <li class="border-top border-bottom py-3">Comunicación directa con jugadores y entrenadores</li>
                   </ul>
                 </div>
                 <!-- Plan Button -->
-                <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="productPrices?.elite_league.cta">
-                  <a href="#" class="btn mt-4 ">{{productPrices?.elite_league.cta}} </a>
+                <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="eliteLeaguePrice?.cta">
+                  <a href="#" class="btn mt-4 ">{{eliteLeaguePrice?.cta}} </a>
                 </div>
               </div>
             </div>
@@ -157,17 +146,13 @@ const {
 <style>
   .plan-price.details{
     border-radius: 4px;
+    border: 1px solid #9155FD;
+    padding: .5rem 1rem;
+    background: transparent;
   }
   .plan-price.details p{
     font-weight: bold;
     font-size: 14px;
-  }
-  .plan-price.details p{
-    border: 1px solid #9155FD;
-    border-radius: 4px;
-    padding: .5rem 1rem;
-    background: transparent;
-    color: #565656 !important;
   }
   .plan-price.details span{
     font-weight: bold;
