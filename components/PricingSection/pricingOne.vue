@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import CardCTA from "~/components/PricingSection/CardCTA.vue";
+
 const {
     kickOffPrice,
     proPlayPrice,
@@ -8,6 +10,7 @@ const {
     setPriceMode,
     loading,
   } = useProductPrices()
+const email = ref('')
 </script>
 <template>
   <section id="pricing" class="section price-plan-area  overflow-hidden ptb_100">
@@ -63,10 +66,7 @@ const {
                     <li class="border-top border-bottom py-3">Estadísticas generales</li>
                   </ul>
                 </div>
-                <!-- Plan Button -->
-                <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="kickOffPrice?.cta">
-                  <a :href="kickOffPrice?.url" class="btn mt-4">{{kickOffPrice?.cta}} </a>
-                </div>
+               <CardCTA :cta="kickOffPrice?.cta" :url="kickOffPrice?.url"/>
               </div>
             </div>
             <div class="col-12 col-md-4">
@@ -96,9 +96,8 @@ const {
                   </ul>
                 </div>
                 <!-- Plan Button -->
-                <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="proPlayPrice?.cta">
-                  <a :href="proPlayPrice?.url" class="btn mt-4">{{proPlayPrice?.cta}} </a>
-                </div>
+                <CardCTA :cta="proPlayPrice?.cta" :url="proPlayPrice?.url"/>
+
               </div>
             </div>
             <div class="col-12 col-md-4 mt-4 mt-md-0">
@@ -127,10 +126,7 @@ const {
                     <li class="border-top border-bottom py-3">Comunicación directa con jugadores y entrenadores</li>
                   </ul>
                 </div>
-                <!-- Plan Button -->
-                <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="eliteLeaguePrice?.cta">
-                  <a :href="eliteLeaguePrice?.url" class="btn mt-4 ">{{eliteLeaguePrice?.cta}} </a>
-                </div>
+                <CardCTA :cta="eliteLeaguePrice?.cta" :url="eliteLeaguePrice?.url"/>
               </div>
             </div>
           </div>

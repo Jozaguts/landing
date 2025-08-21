@@ -62,7 +62,7 @@
                 </p>
                 <p class="mb-3">Con Futzo.io, llevar el control de tu liga es simple, rápido y profesional.</p>
                 <p><span>📍</span> Con sede en Puerto Vallarta, Jalisco, México</p>
-                <p><span>📞</span> Contacto: +52 322 475 0062</p>
+                <p><span>📞</span> Contacto: +52 322 327 8118</p>
                 <p><span>📧</span> Email: contacto@futzo.io</p>
               </div>
             </div>
