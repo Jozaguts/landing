@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const {cta, url} = defineProps<{cta: string, url: string}>()
+const {cta, url} = defineProps<{cta?: string, url?: string}>()
 const email =ref('')
 const disabled = ref(true)
 const validateEmail = (email: string) => {
@@ -21,7 +21,7 @@ const  clickHandler =() =>{
 <template>
   <div>
     <div class="mt-2 ">
-      <input  v-model="email" type="email" required class="form-control " placeholder="Ingresa tu correo electrónico">
+      <input  v-model="email" type="email" required class="form-control " placeholder="Ingresa tu correo electrónico" name="email" autocomplete="off" style="border: 1px solid #6f42c1;">
     </div>
     <!-- Plan Button -->
     <div class="plan-button" data-toggle="tooltip" data-placement="top" :title="cta">

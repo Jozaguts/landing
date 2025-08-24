@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import CardCTA from "~/components/PricingSection/CardCTA.vue";
+import PlanCard from "~/components/PricingSection/PlanCard.vue";
 
 const {
-    kickOffPrice,
-    proPlayPrice,
-    eliteLeaguePrice,
-    isAnnuallyPrice,
     priceMode,
     setPriceMode,
     loading,
+  kickoffPlan,
+  proPlayPlan,
+  eliteLeaguePlan,
   } = useProductPrices()
-const email = ref('')
 </script>
 <template>
   <section id="pricing" class="section price-plan-area  overflow-hidden ptb_100">
@@ -42,92 +40,65 @@ const email = ref('')
         <div class="col-12 col-sm-12 col-lg-12">
           <div class="row price-plan-wrapper">
             <div class="col-12 col-md-4">
-              <!-- Single Price Plan -->
-              <div class="single-price-plan text-center p-5 wow fadeInLeft" data-aos-duration="2s" data-wow-delay="0.4s">
-                <!-- Plan Thumb -->
-                <div class="plan-thumb">
-                  <img width="250" height="180" src="assets/img/logos/vertical/logo-08.png" alt="futzo logo vertical fondo primario">
-                </div>
-                <!-- Plan Title -->
-                <div class="plan-title my-2 my-sm-3">
-                  <p class="card-title text-uppercase">Kickoff</p>
-                </div>
-                <!-- Plan Price -->
-                <div class="plan-price" v-html="kickOffPrice?.price"></div>
-                <div class="plan-price details py-2 mt-2" v-auto-animate>
-                  <p class="promo" v-html="kickOffPrice?.promo"></p>
-                  <p v-if="isAnnuallyPrice" class="color-primary text-primary">Al pagar anualmente</p>
-                </div>
-                <!-- Plan Description -->
-                <div class="plan-description">
-                  <ul class="plan-features">
-                    <li class="border-top py-3">Gestión de múltiples torneos</li>
-                    <li class="border-top py-3">Programación de partidos automatizada</li>
-                    <li class="border-top border-bottom py-3">Estadísticas generales</li>
-                  </ul>
-                </div>
-               <CardCTA :cta="kickOffPrice?.cta" :url="kickOffPrice?.url"/>
-              </div>
+             <PlanCard
+                 :title="kickoffPlan?.name"
+                 img_path="/images/logo-08.png"
+                 :price="kickoffPlan?.price"
+                 :symbol="kickoffPlan?.currency?.symbol"
+                 :iso_code="kickoffPlan?.currency?.iso_code"
+                 :promo_price="kickoffPlan?.promo_price"
+                 :annually_price="kickoffPlan?.annually_price"
+                 :annual_saving="kickoffPlan?.annual_saving"
+                 :cta="kickoffPlan?.cta"
+                 :url="kickoffPlan?.url"
+                 :features="[
+                     'Administra todos tus torneos desde un solo lugar.',
+                     'Olvídate de Excel: calendario automático en segundos.',
+                     'Resultados, goles sustituciones y tarjetas en tiempo real.',
+                 ]"
+             />
             </div>
             <div class="col-12 col-md-4">
               <!-- Single Price Plan -->
-              <div class="single-price-plan text-center p-5 wow fadeInLeft" data-aos-duration="2s" data-wow-delay="0.4s">
-                <!-- Plan Thumb -->
-                <div class="plan-thumb">
-                  <img width="240" height="169" src="assets/img/logos/vertical/logo-07.png" alt="futzo logo vertical fondo primario">
-                </div>
-                <!-- Plan Title -->
-                <div class="plan-title my-2 my-sm-3">
-                  <p class="card-title text-uppercase">ProPlay</p>
-                </div>
-                <!-- Plan Price -->
-                <div class="plan-price" v-html="proPlayPrice?.price"></div>
-                <div class="plan-price details py-2 mt-2" v-auto-animate>
-                  <p class="promo" v-html="proPlayPrice?.promo"></p>
-                  <p v-if="isAnnuallyPrice" class="color-primary text-primary">Al pagar anualmente</p>
-                </div>
-                <!-- Plan Description -->
-                <div class="plan-description">
-                  <ul class="plan-features">
-                    <li class="border-top py-3">Incluye todo de Kickoff</li>
-                    <li class="border-top py-3 ">Registro automatizado, genera URLs únicas para inscripción directa en torneos.</li>
-                    <li class="border-top py-3">Configuración visual, asegura que futzo.io coincida con tu liga.</li>
-                    <li class="border-top border-bottom py-3">Soporte</li>
-                  </ul>
-                </div>
-                <!-- Plan Button -->
-                <CardCTA :cta="proPlayPrice?.cta" :url="proPlayPrice?.url"/>
-
-              </div>
+              <PlanCard
+                  :title="proPlayPlan?.name"
+                  img_path="/images/logo-07.png"
+                  :price="proPlayPlan?.price"
+                  :symbol="proPlayPlan?.currency?.symbol"
+                  :iso_code="proPlayPlan?.currency?.iso_code"
+                  :promo_price="proPlayPlan?.promo_price"
+                  :annually_price="proPlayPlan?.annually_price"
+                  :annual_saving="proPlayPlan?.annual_saving"
+                  :cta="proPlayPlan?.cta"
+                  :url="proPlayPlan?.url"
+                  :features="[
+                     'Todo lo del plan Kickoff',
+                      'Registro automático con links únicos para inscripción',
+                      'Personaliza Futzo con los colores y logo de tu liga',
+                      'Soporte estándar'
+                 ]"
+              />
             </div>
             <div class="col-12 col-md-4 mt-4 mt-md-0">
               <!-- Single Price Plan -->
-              <div class="single-price-plan text-center p-5 wow fadeInRight" data-aos-duration="2s" data-wow-delay="0.4s">
-                <!-- Plan Thumb -->
-                <div class="plan-thumb">
-                  <img width="250" height="180" src="assets/img/logos/vertical/logo-08.png" alt="futzo logo vertical fondo primario">
-                </div>
-                <!-- Plan Title -->
-                <div class="plan-title my-2 my-sm-3">
-                  <p class="card-title text-uppercase">EliteLeague</p>
-                </div>
-                <!-- Plan Price -->
-                <div class="plan-price" v-html="eliteLeaguePrice?.price"></div>
-                <div class="plan-price details py-2 mt-2" v-auto-animate>
-                  <p class="promo" v-html="eliteLeaguePrice?.promo"></p>
-                  <p v-if="isAnnuallyPrice" class="color-primary text-primary">Al pagar anualmente</p>
-                </div>
-                <!-- Plan Description -->
-                <div class="plan-description">
-                  <ul class="plan-features">
-                    <li class="border-top py-3">Incluye todo de ProPlay</li>
-                    <li class="border-top py-3">Soporte prioritario</li>
-                    <li class="border-top py-3">Acceso anticipado a futuras actualizaciones</li>
-                    <li class="border-top border-bottom py-3">Comunicación directa con jugadores y entrenadores</li>
-                  </ul>
-                </div>
-                <CardCTA :cta="eliteLeaguePrice?.cta" :url="eliteLeaguePrice?.url"/>
-              </div>
+              <PlanCard
+                  :title="eliteLeaguePlan?.name"
+                  img_path="/images/logo-08.png"
+                  :price="eliteLeaguePlan?.price"
+                  :symbol="eliteLeaguePlan?.currency?.symbol"
+                  :iso_code="eliteLeaguePlan?.currency?.iso_code"
+                  :promo_price="eliteLeaguePlan?.promo_price"
+                  :annually_price="eliteLeaguePlan?.annually_price"
+                  :annual_saving="eliteLeaguePlan?.annual_saving"
+                  :cta="eliteLeaguePlan?.cta"
+                  :url="eliteLeaguePlan?.url"
+                  :features="[
+                     'Todo lo del plan ProPlay',
+                     'Soporte prioritario',
+                     'Acceso anticipado a nuevas funciones',
+                     'Comunicación directa con jugadores y entrenadores',
+                 ]"
+              />
             </div>
           </div>
         </div>
@@ -139,52 +110,3 @@ const email = ref('')
     </div>
   </section>
 </template>
-<style>
-  .plan-price.details{
-    border-radius: 4px;
-    border: 1px solid #9155FD;
-    padding: .5rem 1rem;
-    background: transparent;
-  }
-  .plan-price.details p{
-    font-weight: bold;
-    font-size: 14px;
-  }
-  .plan-price.details span{
-    font-weight: bold;
-    font-size: 12px;
-  }
-  .price-details{
-    font-size: 14px;
-  }
-  .custom-btn, .custom-btn:hover {
-   color: #444;
-    background: transparent;
-    border: 1px solid #9155FD;
-  }
-  .custom-btn.active {
-    color: white;
-    background: linear-gradient(-47deg, #28243D 0%, #9155FD 100%);
-    border: 1px solid #9155FD;
-  }
-.price-text {
-  font-size: 2em;
-  font-weight: 600;
-  line-height: 1.2;
-  color: #222;
-}
-
-.cursor-pointer:hover {
-  cursor: pointer;
-}
-
-.card-title {
-  font-size: 20px;
-  letter-spacing: 3px;
-  opacity: 0.8;
-  line-height: 1.2;
-  font-weight: 600;
-  color: #222;
-  margin-bottom: 0;
-}
-</style>
