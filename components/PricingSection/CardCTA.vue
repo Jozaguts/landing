@@ -2,6 +2,7 @@
 const {cta, url} = defineProps<{cta?: string, url?: string}>()
 const email =ref('')
 const disabled = ref(true)
+const{isAnnuallyPrice} = useProductPrices()
 const validateEmail = (email: string) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -13,7 +14,7 @@ watch(email,(value)  =>{
 })
 const  clickHandler =() =>{
   if (validateEmail(email.value)) {
-    window.location.href = url + `&identifier=${email.value}`;
+    window.location.href = url + `&identifier=${email.value}&period=${isAnnuallyPrice.value ?'year': 'month'}`;
   }
 }
 </script>

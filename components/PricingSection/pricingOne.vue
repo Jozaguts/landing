@@ -50,7 +50,7 @@ const {
                  :annually_price="kickoffPlan?.annually_price"
                  :annual_saving="kickoffPlan?.annual_saving"
                  :cta="kickoffPlan?.cta"
-                 :urls="kickoffPlan?.urls"
+                 :url="kickoffPlan?.url"
                  :features="[
                      'Administra todos tus torneos desde un solo lugar.',
                      'Olvídate de Excel: calendario automático en segundos.',
@@ -70,7 +70,7 @@ const {
                   :annually_price="proPlayPlan?.annually_price"
                   :annual_saving="proPlayPlan?.annual_saving"
                   :cta="proPlayPlan?.cta"
-                  :urls="proPlayPlan?.urls"
+                  :url="proPlayPlan?.url"
                   :features="[
                      'Todo lo del plan Kickoff',
                       'Registro automático con links únicos para inscripción',
@@ -91,7 +91,7 @@ const {
                   :annually_price="eliteLeaguePlan?.annually_price"
                   :annual_saving="eliteLeaguePlan?.annual_saving"
                   :cta="eliteLeaguePlan?.cta"
-                  :urls="eliteLeaguePlan?.urls"
+                  :url="eliteLeaguePlan?.url"
                   :features="[
                      'Todo lo del plan ProPlay',
                      'Soporte prioritario',

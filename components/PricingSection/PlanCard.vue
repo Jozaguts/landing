@@ -12,12 +12,9 @@ const {
   promo_price,
   annual_saving,
   cta,
-  urls,
+  url,
   features,
 } = defineProps<PlanCard>();
-const url = computed(() =>{
-  return isAnnuallyPrice.value ? urls?.month : urls?.year
-})
 </script>
 
 <template>

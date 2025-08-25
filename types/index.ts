@@ -53,10 +53,7 @@ export type PlanCard  = {
     promo_price?: string,
     discount?: string,
     cta?: string,
-    urls?: {
-      month: string,
-        year: string,
-    },
+    url: string,
     annual_saving?: string,
     features?: string[],
 }
