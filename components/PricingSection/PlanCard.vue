@@ -12,9 +12,12 @@ const {
   promo_price,
   annual_saving,
   cta,
-  url,
+  urls,
   features,
 } = defineProps<PlanCard>();
+const url = computed(() =>{
+  return isAnnuallyPrice.value ? urls?.month : urls?.year
+})
 </script>
 
 <template>
@@ -78,16 +81,6 @@ const {
 }
 .price-details{
   font-size: 14px;
-}
-.custom-btn, .custom-btn:hover {
-  color: #444;
-  background: transparent;
-  border: 1px solid #9155FD;
-}
-.custom-btn.active {
-  color: white;
-  background: linear-gradient(-47deg, #28243D 0%, #9155FD 100%);
-  border: 1px solid #9155FD;
 }
 .price-text {
   font-size: 2em;

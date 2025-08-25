@@ -50,7 +50,7 @@ const {
                  :annually_price="kickoffPlan?.annually_price"
                  :annual_saving="kickoffPlan?.annual_saving"
                  :cta="kickoffPlan?.cta"
-                 :url="kickoffPlan?.url"
+                 :urls="kickoffPlan?.urls"
                  :features="[
                      'Administra todos tus torneos desde un solo lugar.',
                      'Olvídate de Excel: calendario automático en segundos.',
@@ -70,7 +70,7 @@ const {
                   :annually_price="proPlayPlan?.annually_price"
                   :annual_saving="proPlayPlan?.annual_saving"
                   :cta="proPlayPlan?.cta"
-                  :url="proPlayPlan?.url"
+                  :urls="proPlayPlan?.urls"
                   :features="[
                      'Todo lo del plan Kickoff',
                       'Registro automático con links únicos para inscripción',
@@ -91,7 +91,7 @@ const {
                   :annually_price="eliteLeaguePlan?.annually_price"
                   :annual_saving="eliteLeaguePlan?.annual_saving"
                   :cta="eliteLeaguePlan?.cta"
-                  :url="eliteLeaguePlan?.url"
+                  :urls="eliteLeaguePlan?.urls"
                   :features="[
                      'Todo lo del plan ProPlay',
                      'Soporte prioritario',
@@ -110,3 +110,15 @@ const {
     </div>
   </section>
 </template>
+<style scoped>
+.custom-btn, .custom-btn:hover {
+  color: #444;
+  background: transparent;
+  border: 1px solid #9155FD;
+}
+.custom-btn.active {
+  color: white;
+  background: linear-gradient(-47deg, #28243D 0%, #9155FD 100%);
+  border: 1px solid #9155FD;
+}
+</style>
