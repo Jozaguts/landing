@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-const imgSrc = computed(() => {
-  return useRoute().name === 'gracias' ? 'images/logo-19.png' : 'images/logo-17.png'
-})
+const imgSrc = 'images/logo-17.png'
 </script>
 <template>
   <header class="navbar navbar-sticky navbar-expand-lg navbar-dark">

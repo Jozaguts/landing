@@ -68,7 +68,7 @@ useHead({
 .hero-benefits { margin: 1rem 0; padding-left: 1.25rem; }
 .hero-ctas { display: flex; gap: .75rem; margin: 1rem 0; }
 .btn { display: inline-block; padding: .8rem 1.25rem; border-radius: 4px; text-decoration: none; }
-.btn-primary {background: linear-gradient(-47deg, #28243D 0%, #9155FD 100%); }
+.btn-primary {background: #9155FD; }
 .btn-outline { border: 1px solid #9155FD; color: #9155FD; background: transparent; }
 .btn-outline:hover { border: 1px solid #9155FD; color: #9155FD; background: transparent; }
 .btn-outline:focus { border: 1px solid #9155FD; color: #9155FD; background: transparent; }

@@ -11,7 +11,7 @@ const {
   } = useProductPrices()
 </script>
 <template>
-  <section id="pricing" class="section price-plan-area  overflow-hidden ptb_100">
+  <section id="pricing" class="section price-plan-area  overflow-hidden bg-white ptb_100">
     <div v-if="!loading" class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-7">
@@ -118,7 +118,7 @@ const {
 }
 .custom-btn.active {
   color: white;
-  background: linear-gradient(-47deg, #28243D 0%, #9155FD 100%);
+  background:  #9155FD;
   border: 1px solid #9155FD;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <section class="section service-area bg-inherit overflow-hidden ptb_100">
+  <section class="section service-area overflow-hidden bg-white ptb_100">
     <div class="container">
       <div class="row justify-content-between">
         <div class="col-12 col-lg-6 order-2 order-lg-1">
@@ -11,11 +11,11 @@
               <!-- Single Service -->
               <li class="single-service media py-2">
                 <div class="service-icon pr-4">
-                                   <span>
-                                     <client-only>
-                                      <nuxt-icon class="service-icon" name="cogs" filled></nuxt-icon>
-                                     </client-only>
-                                   </span>
+                   <span>
+                     <client-only>
+                      <nuxt-icon class="service-icon" name="cogs" filled></nuxt-icon>
+                     </client-only>
+                   </span>
                 </div>
                 <div class="service-text media-body">
                   <p>Gestión Integral de Ligas: Administra fácilmente equipos, torneos y calendarios desde un solo lugar.</p>

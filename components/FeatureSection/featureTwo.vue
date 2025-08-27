@@ -1,5 +1,5 @@
 <template>
-    <section id="features" class="section features-area ptb_100">
+    <section id="features" class="section features-area bg-white ptb_100">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-6">

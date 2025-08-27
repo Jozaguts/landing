@@ -4,7 +4,7 @@ const stateClass = ref('');
 const isSubmitted = ref(false);
 const emailExists = ref(false);
 const {$toast} = useNuxtApp()
-import {PRE_REGISTER_CODE} from '~/utils/constants'
+import {SEND_COUPON_CODE} from '~/utils/constants'
 const validateEmail = (email: string) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -31,7 +31,7 @@ const submitForm = () => {
         email: email.value,
       }),
     }).then((e) => {
-      useRouter().push({name: 'gracias', query: {code: PRE_REGISTER_CODE}});
+      useRouter().push({name: 'gracias', query: {code: SEND_COUPON_CODE}});
       isSubmitted.value = false;
     })
         .catch((e) => {
@@ -118,7 +118,7 @@ onMounted(() => {
 </template>
 <style scoped>
 button.btn {
-  background: linear-gradient(-47deg, #28243D 0%, #9155FD 100%) !important;
+  background: #9155FD !important;
 }
 </style>
 
