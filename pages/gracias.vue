@@ -15,6 +15,9 @@ const defaultMessage ={
   }
 }
 const code =  Number(useRoute()?.query?.code);
+const redirect_url = computed(() =>{
+  return useRoute().query?.redirect_url + '/?token=' + decodeURIComponent(useRoute().query?.token as string)
+})
 const state = ref(defaultMessage)
 onMounted(() => {
   if (code === SEND_COUPON_CODE){
@@ -77,7 +80,7 @@ onMounted(() => {
 
         </div>
         <p v-if="code !== PURCHASE_SUBSCRIPTION_CODE"  class="text-color my-4">{{state.cta}}</p>
-        <nuxt-link v-else href="https://futzo.io"  class="futzo-btn text-uppercase">{{state.cta}}</nuxt-link>
+        <nuxt-link v-else :href="redirect_url"  class="futzo-btn text-uppercase">{{state.cta}}</nuxt-link>
       </section>
     </div>
   </div>
