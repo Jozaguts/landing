@@ -3,122 +3,126 @@ const email = ref('');
 const stateClass = ref('');
 const isSubmitted = ref(false);
 const emailExists = ref(false);
-const {$toast} = useNuxtApp()
-import {SEND_COUPON_CODE} from '~/utils/constants'
-const validateEmail = (email: string) => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
+const {$toast} = useNuxtApp();
 
+const validateEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
-const submitForm = () => {
+const submitForm = async () => {
   isSubmitted.value = true;
-  const localStorage = window.localStorage;
-  const emailInStorage = localStorage.getItem('email');
+  const ls = window.localStorage;
+  const emailInStorage = ls.getItem('email');
 
-  if (validateEmail(email.value)) {
-    if (emailInStorage !== email.value) {
-      localStorage.setItem('email', email.value);
-    }
-    stateClass.value = 'is-valid';
+  if (!validateEmail(email.value)) {
+    stateClass.value = 'is-invalid';
+    isSubmitted.value = false;
+    return;
+  }
+
+  if (emailInStorage !== email.value) ls.setItem('email', email.value);
+  stateClass.value = 'is-valid';
+
+  try {
     const config = useRuntimeConfig();
-    $fetch(config.public.apiBase + '/pre-register', {
+    await $fetch(config.public.apiBase + '/pre-register', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email: email.value,
+        source: 'lead-magnet_calendario', // para atribución
       }),
-    }).then((e) => {
-      useRouter().push({name: 'gracias', query: {code: SEND_COUPON_CODE}});
-      isSubmitted.value = false;
-    })
-        .catch((e) => {
-          if (e.status === 422) {
-            $toast.error(e.data.message);
-          } else {
-            $toast.error('¡Ha ocurrido un error! Por favor, intenta de nuevo más tarde.');
-          }
-          isSubmitted.value = false;
-        });
-  } else {
-    stateClass.value = 'is-invalid';
+    });
+    // Entrega de la plantilla (puedes servir un link corto o iniciar descarga)
+    useRouter().push({ name: 'gracias', query: { asset: 'plantilla-calendario' } });
+  } catch (e: any) {
+    if (e.status === 422) $toast.error(e.data.message);
+    else $toast.error('¡Ha ocurrido un error! Intenta más tarde.');
+  } finally {
+    isSubmitted.value = false;
   }
-}
+};
+
 onMounted(() => {
-  const localStorage = window.localStorage;
-  if (localStorage.getItem('email')) {
-    email.value = localStorage.getItem('email') as string;
-    emailExists.value = true;
-  } else {
-    email.value = '';
-  }
+  const ls = window.localStorage;
+  email.value = (ls.getItem('email') as string) || '';
+  emailExists.value = !!email.value;
 });
 </script>
+
 <template>
-  <section id="newsletter" class="section price-plan-area bg-gray ptb_100">
+  <section id="newsletter" class="section bg-gray ptb_100">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-7">
           <div class="subscribe-content text-center">
-            <h2>Paga menos, juega más: primer mes en <strong>Futzo</strong> por <strong>$299 MXN</strong></h2>
-            <p class="mt-4"> Administra tu <strong>liga de fútbol</strong> con facilidad: registra equipos y jugadores, genera calendarios
-              y lleva estadísticas en un solo lugar. Tu <strong>primer mes</strong> cuesta solo <strong>$299 MXN</strong>,
-              válido para <strong>cualquier plan</strong>.</p>
-            <form class="subscribe-form" @submit.prevent="submitForm">
-              <div class="form-group">
+            <h2>Descarga gratis la plantilla de <strong>calendario de liga</strong></h2>
+            <p class="mt-4">
+              Recibe un <strong>Excel editable + imagen</strong> para publicar tu fixture.
+              Úsala hoy y descubre cómo <strong>Futzo</strong> lo automatiza en segundos.
+            </p>
 
-                <input type="email"
-                       v-model="email"
-                       class="form-control"
-                       :class="stateClass"
-                       id="exampleInputEmail1"
-                       aria-describedby="emailHelp"
-                       placeholder="Ingresa tu correo electrónico"
-                       formnovalidate
-                >
-                <div id="validationServer03Feedback" class="invalid-feedback">
-                  Ingresa un correo electrónico válido.
-                </div>
+            <form class="subscribe-form" @submit.prevent="submitForm" novalidate>
+              <div class="form-group">
+                <input
+                    type="email"
+                    v-model="email"
+                    class="form-control"
+                    :class="stateClass"
+                    placeholder="Ingresa tu correo electrónico"
+                />
+                <div class="invalid-feedback">Ingresa un correo electrónico válido.</div>
               </div>
-              <button :disabled="isSubmitted" type="submit" class="btn btn-lg btn-block"> Obtener cupón de Futzo
+              <button :disabled="isSubmitted" type="submit" class="btn btn-lg btn-block">
+                Obtener plantilla gratis
                 <span v-show="isSubmitted" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
               </button>
             </form>
+
+            <div class="mt-3">
+              <a href="/signup" class="btn btn-outline mt-2">Empieza gratis 7 días</a>
+              <p class="text-muted mt-2" style="font-size:12px;">No spam. Puedes cancelar tu suscripción cuando quieras.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <component :is="'script'" type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Cómo obtengo el cupón de $299 MXN?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ingresa tu correo en el formulario y te enviaremos el cupón por email para aplicarlo al momento de tu primera facturación."
-          }
-        },
-      {
-        "@type": "Question",
-        "name": "¿El precio de $299 MXN aplica a cualquier plan?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí. El cupón reduce el costo del primer mes a $299 MXN en cualquier plan de Futzo."
-        }
-      }
-    ]
-  }
-  </component>
-</template>
-<style scoped>
-button.btn {
-  background: #9155FD !important;
-}
-</style>
 
+    <!-- FAQ Schema actualizado (sin cupón) -->
+    <component :is="'script'" type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué incluye la plantilla gratis?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un archivo Excel editable y una imagen del calendario para publicar en redes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿La plantilla funciona con cualquier liga?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí, es genérica para ligas amateur. Con Futzo puedes generarla automáticamente y actualizarla en segundos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Necesito tarjeta para el trial de 7 días?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Puedes probar Futzo por 7 días sin tarjeta y elegir tu plan al finalizar."
+            }
+          }
+        ]
+      }
+    </component>
+  </section>
+</template>
+
+<style scoped>
+button.btn { background: #9155FD !important; }
+.btn-outline { border: 1px solid #9155FD; color: #9155FD; background: transparent; }
+</style>
