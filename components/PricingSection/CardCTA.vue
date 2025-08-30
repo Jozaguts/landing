@@ -13,7 +13,7 @@ watch(email,(value)  =>{
   }
 })
 const  clickHandler =() =>{
-  window.location.href = url + `&identifier=${email.value}&period=${isAnnuallyPrice.value ?'year': 'month'}`;
+  window.location.href = url || '/login';
 }
 </script>
 
