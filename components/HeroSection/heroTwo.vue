@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: 'Futzo.io | Gestiona tu liga de fútbol de manera profesional',
+  title: 'Futzo.io | Administra tu liga en minutos. Calendarios, equipos y resultados en un solo lugar Prueba gratis 7 días. Sin tarjeta de crédito.',
   meta: [
     {
       name: 'description',
@@ -24,19 +24,16 @@ useHead({
         <div class="col-12 col-md-7">
           <div class="welcome-intro">
             <h1>Futzo.io</h1>
-            <h2><strong>Gestiona tu liga de fútbol </strong> de manera profesional</h2>
-            <p class="hero-subtitle my-0">Centraliza calendarios, equipos, jugadores y resultados en una sola plataforma.</p>
-            <p class="hero-subtitle my-0"> Ahorra tiempo y mejora la comunicación en tu liga.</p>
-
-            <!-- Key benefits improve scanability and SEO -->
+            <h2><strong>Administra tu liga en minutos</strong></h2>
+            <p class="hero-subtitle my-0">Calendarios, equipos y resultados en un solo lugar.</p>
+            <p class="hero-subtitle my-0"><strong>Prueba gratis 7 días.</strong></p>
             <ul class="hero-benefits">
-              <li>Calendario y resultados en tiempo real</li>
-              <li>Registro de equipos y jugadores</li>
-              <li>Estadísticas y tarjetas de juego</li>
+              <li>✅ Calendario y resultados en tiempo real</li>
+              <li>✅ Registro fácil de equipos y jugadores</li>
+              <li>✅ Estadísticas automáticas</li>
             </ul>
             <div class="hero-ctas">
-              <a class="btn btn-primary" href="#pricing">Ver planes</a>
-              <a class="btn btn-outline" href="#newsletter">Obtener cupón: primer mes $299 MXN</a>
+              <a class="btn btn-primary" href="#pricing">Prueba gratis 7 días</a>
             </div>
             <small class="hero-note">
               Sin instalación. Prueba rápida. Soporte por chat.
