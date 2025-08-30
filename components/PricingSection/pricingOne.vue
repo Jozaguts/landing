@@ -17,95 +17,120 @@ const {
         <div class="col-12 col-md-10 col-lg-7">
           <!-- Section Heading -->
           <div class="section-heading text-center">
-            <h2>Desbloquea Todo el Potencial de Futzo.io</h2>
-            <p class="d-none d-sm-block mt-4">Lleva la gestión de tu liga al siguiente nivel con Futzo.io Desde pequeñas ligas hasta grandes competiciones, te ofrecemos la solución
-              perfecta.</p>
+            <h2>Elige tu plan después de tu prueba gratis</h2>
+            <p class="d-none d-sm-block mt-4">Comienza hoy con tu <strong>trial gratis de 7 días</strong>.
+              Al finalizar, selecciona el plan que mejor se adapte al tamaño de tu liga.</p>
             <p class="d-block d-sm-none mt-4">Gestión eficiente de tu liga de fútbol con las herramientas avanzadas de Futzo.</p>
           </div>
         </div>
       </div>
       <div class="row justify-content-center pb-2">
-        <div class="col-6">
-          <ul class="nav nav-pills nav-justified">
+        <div class="col-12 col-md-6">
+          <ul class="nav nav-pills nav-justified align-items-center">
             <li class="nav-item mx-2 mb-2">
-              <button @click="() => setPriceMode('annually_price')"  type="button" class="btn btn-block custom-btn" :class="{'active': priceMode ==='annually_price' }">Anual</button>
+              <button
+                  @click="() => setPriceMode('annually_price')"
+                  type="button"
+                  class="btn btn-block custom-btn"
+                  :class="{'active': priceMode === 'annually_price' }"
+              >
+                Anual <span v-if="kickoffPlan?.annual_saving"></span>
+              </button>
             </li>
-            <li class="nav-item">
-              <button @click="() => setPriceMode('monthly_price')" type="button" class="btn btn-block custom-btn" :class="{'active': priceMode ==='monthly_price' }">Mensual</button>
+            <li class="nav-item mx-2 mb-2">
+              <button
+                  @click="() => setPriceMode('monthly_price')"
+                  type="button"
+                  class="btn btn-block custom-btn"
+                  :class="{'active': priceMode === 'monthly_price' }"
+              >
+                Mensual
+              </button>
             </li>
           </ul>
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-12 col-sm-12 col-lg-12">
+        <div class="col-12">
           <div class="row price-plan-wrapper">
+            <!-- Kickoff -->
             <div class="col-12 col-md-4">
-             <PlanCard
-                 :title="kickoffPlan?.name"
-                 img_path="/images/logo-08.png"
-                 :price="kickoffPlan?.price"
-                 :symbol="kickoffPlan?.currency?.symbol"
-                 :iso_code="kickoffPlan?.currency?.iso_code"
-                 :promo_price="kickoffPlan?.promo_price"
-                 :annually_price="kickoffPlan?.annually_price"
-                 :annual_saving="kickoffPlan?.annual_saving"
-                 :cta="kickoffPlan?.cta"
-                 :url="kickoffPlan?.url"
-                 :features="[
-                     'Administra todos tus torneos desde un solo lugar.',
-                     'Olvídate de Excel: calendario automático en segundos.',
-                     'Resultados, goles sustituciones y tarjetas en tiempo real.',
-                 ]"
-             />
+              <PlanCard
+                  :title="kickoffPlan?.name"
+                  img_path="/images/logo-08.png"
+                  :price="kickoffPlan?.price"
+                  :symbol="kickoffPlan?.currency?.symbol"
+                  :iso_code="kickoffPlan?.currency?.iso_code"
+                  :annually_price="kickoffPlan?.annually_price"
+                  :annual_saving="kickoffPlan?.annual_saving"
+                  cta="Empieza gratis 7 días"
+                  :url="kickoffPlan?.url"
+                  :features="[
+                'Administra todos tus torneos desde un solo lugar',
+                'Calendario automático en segundos (adiós Excel)',
+                'Resultados y estadísticas en tiempo real'
+              ]"
+                  :mode="priceMode"
+              />
             </div>
+
+            <!-- ProPlay (recomendado) -->
             <div class="col-12 col-md-4">
-              <!-- Single Price Plan -->
               <PlanCard
                   :title="proPlayPlan?.name"
                   img_path="/images/logo-07.png"
                   :price="proPlayPlan?.price"
                   :symbol="proPlayPlan?.currency?.symbol"
                   :iso_code="proPlayPlan?.currency?.iso_code"
-                  :promo_price="proPlayPlan?.promo_price"
                   :annually_price="proPlayPlan?.annually_price"
                   :annual_saving="proPlayPlan?.annual_saving"
-                  :cta="proPlayPlan?.cta"
+                  cta="Empieza gratis 7 días"
                   :url="proPlayPlan?.url"
                   :features="[
-                     'Todo lo del plan Kickoff',
-                      'Registro automático con links únicos para inscripción',
-                      'Personaliza Futzo con los colores y logo de tu liga',
-                      'Soporte estándar'
-                 ]"
+                'Todo lo de Kickoff',
+                'Registro automático con links únicos',
+                'Personaliza colores y logo de tu liga',
+                'Soporte estándar'
+              ]"
+                  :mode="priceMode"
+                  featured
+                  badge="Más elegido"
               />
             </div>
+
+            <!-- EliteLeague -->
             <div class="col-12 col-md-4 mt-4 mt-md-0">
-              <!-- Single Price Plan -->
               <PlanCard
                   :title="eliteLeaguePlan?.name"
                   img_path="/images/logo-08.png"
                   :price="eliteLeaguePlan?.price"
                   :symbol="eliteLeaguePlan?.currency?.symbol"
                   :iso_code="eliteLeaguePlan?.currency?.iso_code"
-                  :promo_price="eliteLeaguePlan?.promo_price"
                   :annually_price="eliteLeaguePlan?.annually_price"
                   :annual_saving="eliteLeaguePlan?.annual_saving"
-                  :cta="eliteLeaguePlan?.cta"
+                  cta="Empieza gratis 7 días"
                   :url="eliteLeaguePlan?.url"
                   :features="[
-                     'Todo lo del plan ProPlay',
-                     'Soporte prioritario',
-                     'Acceso anticipado a nuevas funciones',
-                     'Comunicación directa con jugadores y entrenadores',
-                 ]"
+                'Todo lo de ProPlay',
+                'Soporte prioritario',
+                'Acceso anticipado a nuevas funciones',
+                'Comunicación directa con jugadores y entrenadores'
+              ]"
+                  :mode="priceMode"
               />
             </div>
           </div>
         </div>
       </div>
-      <div class="row justify-content-center pt-5">
-        <p class="text-body pt-4 fw-6">Satisfacción Garantizada en Todos Nuestros Planes</p>
-        <p class="text-body fw-2">Puedes probar cualquier plan con total confianza, sabiendo que, si no quedas satisfecho, te devolveremos tu dinero sin preguntas.</p>
+      <!-- Confianza -->
+      <div class="row justify-content-center pt-5 text-center">
+        <div class="col-12 col-md-10">
+          <p class="text-body pt-2 fw-6">Cambia o cancela tu plan en cualquier momento.</p>
+          <p class="text-body fw-2">Tu progreso y configuración se conservan cuando pasas del trial a un plan.</p>
+          <p class="text-body fw-2">
+            ¿Dudas? <a href="#faq">Consulta las preguntas frecuentes</a> o escríbenos por chat.
+          </p>
+        </div>
       </div>
     </div>
   </section>
