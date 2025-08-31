@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { $fbq, $buildAppUrl } = useNuxtApp() as any
 const {cta, url} = defineProps<{cta?: string, url?: string}>()
 const email =ref('')
 const disabled = ref(true)
@@ -12,8 +13,8 @@ watch(email,(value)  =>{
   }
 })
 const  clickHandler =() =>{
-  useNuxtApp().$fbq('trackCustom', 'StartTrialClick');
-  window.location.href = url || '/login';
+  $fbq('trackCustom', 'StartTrialClick', { source: 'landing', placement: 'card_cta' })
+  window.location.href = $buildAppUrl(url)
 }
 </script>
 

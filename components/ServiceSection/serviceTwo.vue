@@ -1,3 +1,14 @@
+<script setup lang="ts">
+const {kickoffPlan} = useProductPrices()
+const { $buildAppUrl } = useNuxtApp() as any
+const url  = ref('')
+watch(kickoffPlan, (newVal) => {
+  console.log(newVal.url)
+  if (newVal.url) {
+    url.value = $buildAppUrl(newVal.url)
+  }
+},{deep:true})
+</script>
 <template>
   <section class="section service-area overflow-hidden bg-white ptb_100">
     <div class="container">
@@ -74,7 +85,7 @@
                 </div>
               </li>
             </ul>
-            <a href="#newsletter" class="btn btn-bordered mt-4">¡Únete a la Espera!</a>
+            <a :href="url" target="_blank" class="btn btn-bordered mt-4">Empieza gratis</a>
           </div>
         </div>
         <div class="col-12 col-lg-4 order-1 order-lg-2 d-none d-md-block">
@@ -88,9 +99,7 @@
   </section>
 </template>
 
-<script>
-export default {}
-</script>
+
 
 <style>
 .nuxt-icon.service-icon > svg {
