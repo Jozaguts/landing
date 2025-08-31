@@ -2,7 +2,6 @@
 const {cta, url} = defineProps<{cta?: string, url?: string}>()
 const email =ref('')
 const disabled = ref(true)
-const{isAnnuallyPrice} = useProductPrices()
 const validateEmail = (email: string) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -13,6 +12,7 @@ watch(email,(value)  =>{
   }
 })
 const  clickHandler =() =>{
+  useNuxtApp().$fbq('trackCustom', 'StartTrialClick');
   window.location.href = url || '/login';
 }
 </script>

@@ -23,10 +23,16 @@ const {stop} = useIntersectionObserver(
       pricingRefIsVisible.value = isIntersecting
     },
 )
-watch(() => pricingRefIsVisible.value, (value) => {
+
+const unWatch = watch(() => pricingRefIsVisible.value, (value) => {
   if (value) {
-    $fbq('track', 'ViewContent', {value: 100, content_type: 'pricing'})
+    $fbq('track', 'ViewContent', {
+      content_name: 'pricing',
+      content_category: 'plans',
+      content_type: 'pricing'
+    })
     stop()
+    unWatch()
   }
 })
 </script>

@@ -58,7 +58,10 @@ onMounted(() => {
       }
     }
 
-    $fbq('track','Purchase',{currency: "MXN", value: amount_subtotal})
+    $fbq('track', 'Subscribe', {
+      currency: 'MXN',
+      value: amount_subtotal,
+    })
   }
   hydrated.value = false
 })
