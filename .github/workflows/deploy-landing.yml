@@ -41,10 +41,10 @@ jobs:
 
             # Ensure clean working tree and latest code
             git fetch --prune
-            git checkout main
+            git checkout master
             git reset --hard
             git clean -fd
-            git pull --ff-only origin main
+            git pull --ff-only origin master
 
             # Write .env.prod after cleaning
             {
