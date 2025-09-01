@@ -1,0 +1,71 @@
+name: Deploy Landing
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch: {}
+
+concurrency:
+  group: landing-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment: production
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy Landing via SSH
+        env:
+          NUXT_PUBLIC_API_BASE: ${{ vars.NUXT_PUBLIC_API_BASE || 'https://app.futzo.io/api/v1' }}
+          NUXT_PUBLIC_SITE_URL: ${{ vars.NUXT_PUBLIC_SITE_URL || 'https://hola.futzo.io' }}
+          NUXT_PUBLIC_META_PIXEL_ID: ${{ vars.NUXT_PUBLIC_META_PIXEL_ID || '543648128091975' }}
+          NODE_ENV: ${{ vars.NODE_ENV || 'production' }}
+          DEPLOY_PATH: ${{ vars.DEPLOY_PATH || secrets.DEPLOY_PATH }}
+        run: |
+          ssh -p ${{ vars.SSH_PORT || secrets.SSH_PORT || '22' }} -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            set -Eeuo pipefail
+            trap 'echo "[landing-deploy] Failed at line $LINENO" >&2' ERR
+            cd "$DEPLOY_PATH"
+
+            # Ensure clean working tree and latest code
+            git fetch --prune
+            git checkout main
+            git reset --hard
+            git clean -fd
+            git pull --ff-only origin main
+
+            # Write .env.prod after cleaning
+            {
+              echo "NUXT_PUBLIC_API_BASE=$NUXT_PUBLIC_API_BASE"
+              echo "NUXT_PUBLIC_SITE_URL=$NUXT_PUBLIC_SITE_URL"
+              echo "NUXT_PUBLIC_META_PIXEL_ID=$NUXT_PUBLIC_META_PIXEL_ID"
+              echo "NODE_ENV=$NODE_ENV"
+            } > .env.prod
+
+            # Build on server
+            if ! command -v yarn >/dev/null 2>&1; then
+              corepack enable || true
+              npm i -g yarn || true
+            fi
+            yarn install --frozen-lockfile
+            NODE_OPTIONS=--max-old-space-size=4096 node node_modules/.bin/nuxt build --dotenv .env.prod
+
+            # PM2 restart
+            echo "PM2 diagnostics:"
+            command -v pm2 && pm2 -v || echo "pm2 not in PATH"
+            pm2 ls || true
+            pm2 startOrReload ecosystem.config.cjs --update-env || pm2 start ecosystem.config.cjs --update-env || { echo 'ERROR: pm2 failed to start/reload app'; exit 1; }
+            pm2 list | grep -E "futzo|landing|online" >/dev/null || { echo 'ERROR: PM2 process not online'; pm2 status || true; exit 1; }
+          EOF

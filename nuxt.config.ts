@@ -38,9 +38,10 @@ export default defineNuxtConfig({
     runtimeConfig: {
         // Keys within public, will be also exposed to the client-side
         public: {
-            apiBase: 'https://app.futzo.io/api/v1',
+            apiBase: process.env.NUXT_PUBLIC_API_BASE || 'https://app.futzo.io/api/v1',
+            siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://hola.futzo.io',
             metapixel: {
-                default: {id: '543648128091975', pageView: '/'},
+                default: { id: process.env.NUXT_PUBLIC_META_PIXEL_ID || '543648128091975', pageView: '/' },
             }
         }
     }
