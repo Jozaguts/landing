@@ -29,7 +29,12 @@ export function useProductPrices() {
         const p = (async () => {
             try {
                 // NOTE: Do not type as Promise<ProductPrices>; $fetch already resolves to the type.
-                productPrices.value = await requestFetch<ProductPrices>(`${config.public.apiBase}/public/products/prices`)
+                productPrices.value = await requestFetch<ProductPrices>(`${config.public.apiBase}/public/products/prices`,{
+                    headers:{
+                        accept: 'application/json',
+                        contentType: 'application/json',
+                    }
+                })
             } catch (e) {
                 error.value = e
                 productPrices.value = null
