@@ -34,7 +34,7 @@ jobs:
           NODE_ENV: ${{ vars.NODE_ENV || 'production' }}
           DEPLOY_PATH: ${{ vars.DEPLOY_PATH || secrets.DEPLOY_PATH }}
         run: |
-          ssh -p ${{ vars.SSH_PORT || secrets.SSH_PORT || '22' }} -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          ssh -p ${{ vars.SSH_PORT || secrets.SSH_PORT || '22' }} -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
             set -Eeuo pipefail
             trap 'echo "[landing-deploy] Failed at line $LINENO" >&2' ERR
             cd "$DEPLOY_PATH"
