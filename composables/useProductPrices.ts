@@ -14,7 +14,7 @@ export function useProductPrices() {
     const proPlayPlan = computed(() => productPrices.value?.pro_play)
     const eliteLeaguePlan = computed(() => productPrices.value?.elite_league)
 
-    const _inFlight = useState<Promise<void> | null>('productPrices:inflight', () => null)
+    const _inFlight = useState<Promise<void> | null |string>('productPrices:inflight', () => null)
     async function load(force = false) {
         // Guard against duplicate calls and allow optional force refresh
         if (!force && productPrices.value) return
