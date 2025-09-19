@@ -28,13 +28,13 @@
                   <span class="media-body pl-2">Automatización de calendarios de partidos: Creación automática de calendarios considerando disponibilidad de estadios y preferencias de equipos.</span>
                 </div>
               </li>
-              <li class="py-1">
-                <!-- List Box -->
-                <div class="list-box media">
-                  <span class="icon align-self-center"><i class="fas fa-check"></i></span>
-                  <span class="media-body pl-2">Notificaciones en tiempo real: Notificaciones automáticas sobre partidos próximos, cambios en el calendario y actualizaciones relevantes.</span>
-                </div>
-              </li>
+<!--              <li class="py-1">-->
+<!--                &lt;!&ndash; List Box &ndash;&gt;-->
+<!--                <div class="list-box media">-->
+<!--                  <span class="icon align-self-center"><i class="fas fa-check"></i></span>-->
+<!--                  <span class="media-body pl-2">Notificaciones en tiempo real: Notificaciones automáticas sobre partidos próximos, cambios en el calendario y actualizaciones relevantes.</span>-->
+<!--                </div>-->
+<!--              </li>-->
               <li class="py-1">
                 <!-- List Box -->
                 <div class="list-box media">

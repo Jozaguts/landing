@@ -49,7 +49,7 @@ const unWatch = watch(() => pricingRefIsVisible.value, (value) => {
       <ScreenshotSection/>
       <!--      <ReviewSection />-->
       <PricingSection ref="pricingRef"/>
-      <NewsletterSection/>
+<!--      <NewsletterSection/>-->
       <FaqSection/>
       <!--      <DownloadSection />-->
 

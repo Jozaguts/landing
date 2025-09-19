@@ -76,11 +76,6 @@ onMounted(() => {
                 <span v-show="isSubmitted" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
               </button>
             </form>
-
-            <div class="mt-3">
-              <a href="/signup" class="btn btn-outline mt-2">Empieza gratis 7 días</a>
-              <p class="text-muted mt-2" style="font-size:12px;">No spam. Puedes cancelar tu suscripción cuando quieras.</p>
-            </div>
           </div>
         </div>
       </div>
