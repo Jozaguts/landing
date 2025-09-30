@@ -2251,5 +2251,5 @@ img {
     }
 }
 .calendly-badge-widget{
-    bottom: 6rem;
+    bottom: 6rem !important;
 }
