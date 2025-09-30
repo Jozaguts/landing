@@ -7,12 +7,16 @@ export default defineNuxtConfig({
             htmlAttrs: {
                 lang: 'es',
             },
+            link:[
+                {rel: 'stylesheet', href: 'https://assets.calendly.com/assets/external/widget.css'},
+            ],
             script: [
                 {src: 'https://futzo.s3.us-east-2.amazonaws.com/assets/js/jquery-3.3.1.min.js', tagPosition: 'bodyClose'},
                 {src: 'https://futzo.s3.us-east-2.amazonaws.com/assets/js/popper.min.js', tagPosition: 'bodyClose'},
                 {src: 'https://futzo.s3.us-east-2.amazonaws.com/assets/js/bootstrap.min.js', tagPosition: 'bodyClose'},
                 {src: 'https://futzo.s3.us-east-2.amazonaws.com/assets/js/plugins.min.js', tagPosition: 'bodyClose'},
                 {src: 'https://futzo.s3.us-east-2.amazonaws.com/assets/js/scripts.js', tagPosition: 'bodyClose'},
+                {src: 'https://assets.calendly.com/assets/external/widget.js', tagPosition: 'bodyClose', async: true},
 
             ],
             meta: [

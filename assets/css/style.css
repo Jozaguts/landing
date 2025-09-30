@@ -2250,3 +2250,6 @@ img {
         padding-top: 0;
     }
 }
+.calendly-badge-widget{
+    bottom: 6rem;
+}

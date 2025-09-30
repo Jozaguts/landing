@@ -35,6 +35,10 @@ const unWatch = watch(() => pricingRefIsVisible.value, (value) => {
     unWatch()
   }
 })
+onMounted(()=>{
+  window.onload = function() { window.Calendly?.initBadgeWidget({ url: 'https://calendly.com/futzo', text: 'Agenda tu demo con Futzo ⚽', color: '#9155FD', textColor: '#ffffff', branding: false }); }
+
+})
 </script>
 <template>
   <div class="homepage-2">
