@@ -1,13 +1,21 @@
 <script setup lang="ts">
-const {kickoffPlan} = useProductPrices()
+const { kickoffPlan } = useProductPrices()
 const { $buildAppUrl } = useNuxtApp() as any
-const url  = ref('')
-watch(kickoffPlan, (newVal) => {
-  console.log(newVal.url)
-  if (newVal.url) {
-    url.value = $buildAppUrl(newVal.url)
+const url = ref('')
+
+const updateUrl = (value: { url?: string } | null | undefined) => {
+  if (value?.url) {
+    url.value = $buildAppUrl(value.url)
   }
-},{deep:true})
+}
+
+watch(kickoffPlan, (newVal) => {
+  updateUrl(newVal)
+}, { deep: true })
+
+onMounted(() => {
+  updateUrl(kickoffPlan.value)
+})
 </script>
 <template>
   <section class="section service-area overflow-hidden bg-white ptb_100">

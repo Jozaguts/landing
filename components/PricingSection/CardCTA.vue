@@ -1,20 +1,35 @@
 <script setup lang="ts">
-const { $fbq, $buildAppUrl } = useNuxtApp() as any
-const {cta, url} = defineProps<{cta?: string, url?: string}>()
-const email =ref('')
-const disabled = ref(true)
-const validateEmail = (email: string) => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-watch(email,(value)  =>{
-  if (value) {
-    disabled.value = !validateEmail(value);
+const { $fbq, $buildAppUrl, $attribution } = useNuxtApp() as any
+const { cta, url } = defineProps<{ cta?: string, url?: string }>()
+
+const generateEventId = () => {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID()
   }
-})
-const  clickHandler =() =>{
-  $fbq('trackCustom', 'StartTrialClick', { source: 'landing', placement: 'card_cta' })
-  window.location.href = $buildAppUrl(url)
+  return `evt-${Date.now()}-${Math.random().toString(16).slice(2)}`
+}
+
+const clickHandler = () => {
+  const eventId = generateEventId()
+  const destination = $buildAppUrl(url, { eventId })
+  const attr = $attribution?.get?.() || {}
+
+  if (typeof $fbq === 'function') {
+    $fbq('trackCustom', 'StartTrialClick', {
+      source: 'landing',
+      placement: 'card_cta',
+      fbclid: attr.fbclid,
+      fbp: attr.fbp,
+      fbc: attr.fbc,
+      ...attr.utm,
+    }, {
+      eventID: eventId,
+    })
+  }
+
+  if (destination) {
+    window.location.href = destination
+  }
 }
 </script>
 

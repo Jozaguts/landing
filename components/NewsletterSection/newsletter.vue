@@ -3,7 +3,7 @@ const email = ref('');
 const stateClass = ref('');
 const isSubmitted = ref(false);
 const emailExists = ref(false);
-const {$toast} = useNuxtApp();
+const { $toast, $attribution } = useNuxtApp();
 
 const validateEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
@@ -23,13 +23,23 @@ const submitForm = async () => {
 
   try {
     const config = useRuntimeConfig();
+    const attribution = $attribution?.get?.() || {}
+    const payload: Record<string, unknown> = {
+      email: email.value,
+      source: 'lead-magnet_calendario',
+      fbclid: attribution.fbclid || undefined,
+      fbp: attribution.fbp || undefined,
+      fbc: attribution.fbc || undefined,
+    }
+
+    Object.entries(attribution.utm || {}).forEach(([key, value]) => {
+      payload[key] = value
+    })
+
     await $fetch(config.public.apiBase + '/pre-register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: email.value,
-        source: 'lead-magnet_calendario', // para atribución
-      }),
+      body: JSON.stringify(payload),
     });
     // Entrega de la plantilla (puedes servir un link corto o iniciar descarga)
     useRouter().push({ name: 'gracias', query: { asset: 'plantilla-calendario' } });
