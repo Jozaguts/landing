@@ -2,6 +2,7 @@
 import {PRE_REGISTER_CODE, PURCHASE_SUBSCRIPTION_CODE, SEND_COUPON_CODE} from "~/utils/constants";
 
 import HeaderSection from '@/components/HeaderSection/headerTwo.vue'
+const route = useRoute()
 const {$fbq} = useNuxtApp()
 const hydrated = ref(true)
 const defaultMessage ={
@@ -14,13 +15,48 @@ const defaultMessage ={
     height: '450px'
   }
 }
-const code =  Number(useRoute()?.query?.code);
-const redirect_url = computed(() =>{
-  return useRoute().query?.redirect_url + '/?token=' + decodeURIComponent(useRoute().query?.token as string)
+const demoMessage = {
+  title: '¡Gracias por tu interés en Futzo!',
+  text: 'Ya casi tienes tu demo personalizada. Elige cómo quieres continuar y agenda tu sesión hoy mismo.',
+  cta: '',
+  img: {
+    src: '/images/success.svg',
+    width: '450px',
+    height: '450px'
+  }
+}
+const code = Number(route?.query?.code)
+const isDemoFlow = computed(() => route?.query?.demo === 'true')
+const redirect_url = computed(() => {
+  const redirect = route?.query?.redirect_url
+  const token = route?.query?.token as string | undefined
+  if (!redirect || !token) {
+    return ''
+  }
+  return `${redirect}/?token=${decodeURIComponent(token)}`
 })
 const state = ref(defaultMessage)
+const handleCalendlyClick = () => {
+  $fbq?.('track', 'Schedule', {
+    content_name: 'demo_calendly',
+    source: 'facebook_form'
+  })
+}
+const handleWhatsappClick = () => {
+  $fbq?.('track', 'Contact', {
+    content_name: 'demo_whatsapp',
+    method: 'whatsapp',
+    source: 'facebook_form'
+  })
+}
 onMounted(() => {
-  if (code === SEND_COUPON_CODE){
+  if (isDemoFlow.value) {
+    state.value = demoMessage
+    $fbq?.('track', 'Lead', {
+      content_name: 'demo_landing',
+      source: 'facebook_form'
+    })
+  } else if (code === SEND_COUPON_CODE){
     state.value = {
       title: '¡Cupón enviado con éxito!',
       text: 'Revisa tu correo: ya tienes tu cupón de descuento exclusivo para usar en el lanzamiento de Futzo.',
@@ -31,7 +67,7 @@ onMounted(() => {
         height: '250px'
       }
     }
-    $fbq('track', 'Lead')
+    $fbq?.('track', 'Lead')
   }else if (code === PRE_REGISTER_CODE){
     state.value = {
       title: '¡Pre-registro confirmado!',
@@ -43,10 +79,10 @@ onMounted(() => {
         height: '250px'
       }
     }
-    $fbq('track', 'Lead')
+    $fbq?.('track', 'Lead')
   }
   else if(code === PURCHASE_SUBSCRIPTION_CODE){
-    const amount_subtotal = (Number(useRoute()?.query?.amount_subtotal) / 100)?.toFixed(2)
+    const amount_subtotal = (Number(route?.query?.amount_subtotal) / 100)?.toFixed(2)
     state.value = {
       title: '¡Bienvenido a Futzo!',
       text: 'Desde hoy, tienes acceso a todas las herramientas para administrar tu liga en un solo lugar.',
@@ -58,7 +94,7 @@ onMounted(() => {
       }
     }
 
-    $fbq('track', 'Subscribe', {
+    $fbq?.('track', 'Subscribe', {
       currency: 'MXN',
       value: amount_subtotal,
     })
@@ -82,7 +118,27 @@ onMounted(() => {
           </div>
 
         </div>
-        <p v-if="code !== PURCHASE_SUBSCRIPTION_CODE"  class="text-color my-4">{{state.cta}}</p>
+        <div v-if="isDemoFlow" class="demo-actions">
+          <a
+            href="https://calendly.com/futzo"
+            target="_blank"
+            rel="noopener"
+            class="futzo-btn demo-btn"
+            @click="handleCalendlyClick"
+          >
+            Agenda tu demo con Futzo ⚽
+          </a>
+          <a
+            href="https://wa.me/523223278118?text=Hola%20quiero%20una%20demo%20de%20Futzo.io"
+            target="_blank"
+            rel="noopener"
+            class="futzo-btn demo-btn whatsapp-btn"
+            @click="handleWhatsappClick"
+          >
+            Hablar por WhatsApp
+          </a>
+        </div>
+        <p v-else-if="code !== PURCHASE_SUBSCRIPTION_CODE"  class="text-color my-4">{{state.cta}}</p>
         <nuxt-link v-else :href="redirect_url"  class="futzo-btn text-uppercase">{{state.cta}}</nuxt-link>
       </section>
     </div>
@@ -135,6 +191,31 @@ onMounted(() => {
   justify-content: center;
   padding: 1.25rem;
   min-block-size: 100dvh;
+}
+.demo-actions{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+  max-width: 420px;
+  width: 100%;
+}
+.demo-btn{
+  width: 100%;
+  text-align: center;
+}
+.whatsapp-btn{
+  background-color: #25d366 !important;
+  color: #fff !important;
+}
+.whatsapp-btn:hover{
+  box-shadow: 0 6px 12px -2px rgba(37,211,102,0.4);
+}
+.demo-actions .futzo-btn{
+  margin-top: 0;
+}
+.demo-actions .futzo-btn:hover{
+  transform: translateY(-1px);
 }
 .welcome-intro >.text-color {
   color: #2e263db3;
